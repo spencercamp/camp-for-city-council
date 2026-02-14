@@ -6,6 +6,10 @@ interface ScribbleOptions {
   strokeColor?: string;
   strokeWidth?: number;
   globalAlpha?: number;
+  /** Ms of inactivity before strokes fade out */
+  fadeDelay?: number;
+  /** Duration of the fade-out animation in ms */
+  fadeDuration?: number;
 }
 
 interface Point {
@@ -25,6 +29,8 @@ export function useScribbleCanvas(
     strokeColor = "#FDE68A",
     strokeWidth = 48,
     globalAlpha = 0.6,
+    fadeDelay = 2000,
+    fadeDuration = 800,
   } = options;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,6 +44,11 @@ export function useScribbleCanvas(
     rafId: 0,
     dpr: 1,
     enabled: true,
+    // Fade-out state
+    fadeTimeoutId: 0 as ReturnType<typeof setTimeout> | 0,
+    fadeRafId: 0,
+    fadeOpacity: 1,
+    isFading: false,
   });
 
   useEffect(() => {
@@ -67,12 +78,13 @@ export function useScribbleCanvas(
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const w = canvas.width;
       const h = canvas.height;
+      const alpha = globalAlpha * state.fadeOpacity;
 
       for (const stroke of state.strokes) {
-        drawStroke(ctx, stroke.points, w, h);
+        drawStroke(ctx, stroke.points, w, h, alpha);
       }
       if (state.currentStroke && state.currentStroke.points.length > 0) {
-        drawStroke(ctx, state.currentStroke.points, w, h);
+        drawStroke(ctx, state.currentStroke.points, w, h, alpha);
       }
     }
 
@@ -80,12 +92,13 @@ export function useScribbleCanvas(
       c: CanvasRenderingContext2D,
       points: Point[],
       w: number,
-      h: number
+      h: number,
+      alpha: number = globalAlpha
     ) {
       if (points.length < 2) return;
 
       c.save();
-      c.globalAlpha = globalAlpha;
+      c.globalAlpha = alpha;
       c.strokeStyle = strokeColor;
       c.lineWidth = strokeWidth * state.dpr;
       c.lineCap = "round";
@@ -136,9 +149,73 @@ export function useScribbleCanvas(
       redraw();
     }
 
+    // --- Fade-out logic ---
+    function cancelFade() {
+      if (state.fadeTimeoutId) {
+        clearTimeout(state.fadeTimeoutId);
+        state.fadeTimeoutId = 0;
+      }
+      if (state.fadeRafId) {
+        cancelAnimationFrame(state.fadeRafId);
+        state.fadeRafId = 0;
+      }
+      state.isFading = false;
+      state.fadeOpacity = 1;
+    }
+
+    function scheduleFade() {
+      cancelFade();
+      // Only schedule if there are strokes to fade
+      if (state.strokes.length === 0 && !state.currentStroke) return;
+
+      state.fadeTimeoutId = setTimeout(() => {
+        state.fadeTimeoutId = 0;
+        startFade();
+      }, fadeDelay);
+    }
+
+    function startFade() {
+      state.isFading = true;
+      state.fadeOpacity = 1;
+      const start = performance.now();
+
+      function tick(now: number) {
+        const elapsed = now - start;
+        state.fadeOpacity = Math.max(0, 1 - elapsed / fadeDuration);
+        redraw();
+
+        if (state.fadeOpacity > 0) {
+          state.fadeRafId = requestAnimationFrame(tick);
+        } else {
+          // Fade complete — clear all strokes
+          state.fadeRafId = 0;
+          state.isFading = false;
+          state.strokes = [];
+          state.currentStroke = null;
+          state.fadeOpacity = 1;
+          if (canvas && ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+        }
+      }
+
+      state.fadeRafId = requestAnimationFrame(tick);
+    }
+
     // --- Pointer events on the container ---
     function onPointerMove(e: PointerEvent) {
       if (!state.enabled) return;
+
+      // If fading, cancel it and restore opacity for new drawing
+      if (state.isFading) {
+        cancelFade();
+        redraw();
+      }
+      // Reset fade timer on every move
+      if (state.fadeTimeoutId) {
+        clearTimeout(state.fadeTimeoutId);
+        state.fadeTimeoutId = 0;
+      }
 
       if (!state.isDrawing) {
         // Start a new stroke on first move inside
@@ -151,6 +228,9 @@ export function useScribbleCanvas(
       if (!state.rafId) {
         state.rafId = requestAnimationFrame(flushPoints);
       }
+
+      // Reset fade timer — will fire if pointer stops moving
+      scheduleFade();
     }
 
     function onPointerLeave() {
@@ -169,6 +249,9 @@ export function useScribbleCanvas(
         state.strokes.push(state.currentStroke);
       }
       state.currentStroke = null;
+
+      // Schedule fade after pointer leaves
+      scheduleFade();
     }
 
     // --- Desktop-only media query ---
@@ -177,6 +260,7 @@ export function useScribbleCanvas(
     function handleMediaChange(e: MediaQueryList | MediaQueryListEvent) {
       state.enabled = e.matches;
       if (!state.enabled) {
+        cancelFade();
         state.strokes = [];
         state.currentStroke = null;
         state.pendingPoints = [];
@@ -204,9 +288,10 @@ export function useScribbleCanvas(
       container.removeEventListener("pointerleave", onPointerLeave);
       mql.removeEventListener("change", handleMediaChange);
       ro.disconnect();
+      cancelFade();
       if (state.rafId) cancelAnimationFrame(state.rafId);
     };
-  }, [containerRef, strokeColor, strokeWidth, globalAlpha]);
+  }, [containerRef, strokeColor, strokeWidth, globalAlpha, fadeDelay, fadeDuration]);
 
   return canvasRef;
 }
