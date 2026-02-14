@@ -21,7 +21,7 @@ export default function Home() {
           src="/images/san-clemente.png"
           alt="A beautiful day in sunny San Clemente with palm trees, the pier, and ocean waves"
           width={2048}
-          height={1463}
+          height={1527}
           className="w-full h-auto block"
           priority={false}
         />
