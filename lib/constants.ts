@@ -99,24 +99,28 @@ export const QUALIFICATIONS = {
       suffix: "years",
       label: "Planning Commission",
       description: "Service on the San Clemente Planning Commission",
+      headline: "4.5 years serving on the Planning Commission",
     },
     {
       value: 4.5,
       suffix: "years",
       label: "Design Review",
       description: "Service on the San Clemente Design Review Subcommittee",
+      headline: "4.5 years on the Design Review Subcommittee",
     },
     {
       value: 36,
       suffix: "years",
       label: "Architecture",
       description: "Running a successful architecture firm in South Orange County",
+      headline: "36 years running a successful architecture firm",
     },
     {
       value: null,
       displayText: "Proven record",
       label: "Community Leadership",
       description: "Of dedicated community service and civic engagement",
+      headline: "Proven record of community leadership",
     },
   ],
 } as const;
