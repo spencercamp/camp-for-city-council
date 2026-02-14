@@ -16,79 +16,70 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Issues", href: "#issues" },
-  { label: "Endorsements", href: "#endorsements" },
-  { label: "Get Involved", href: "#get-involved" },
-  { label: "Donate", href: "#donate" },
+  { label: "about", href: "#about" },
+  { label: "issues", href: "#issues" },
+  { label: "endorsements", href: "#endorsements" },
+  { label: "donate", href: "#donate" },
 ] as const;
 
 export const HERO = {
-  headline: "Fighting for San Clemente",
-  subtitle: "FOR DISTRICT ONE 2026",
-  tagline: "Committed to Public Safety, Fiscal Responsibility, and Quality of Life",
-  body: "With nearly a decade on the Planning Commission and Design Review Subcommittee, Steve Camp is ready to bring experienced, principled leadership to our City Council.",
+  name1: "STEVE",
+  name2: "CAMP",
+  subtitle: "for san clemente city council | district one",
   cta1: "Donate Now",
-  cta2: "Get Involved",
+  cta2: "Learn More",
 } as const;
 
 export const ABOUT = {
-  heading: "About Steve",
+  heading: "about steve",
   bio: [
     "Steve Camp has called San Clemente home for over two decades, raising his family in the community he loves and building a career dedicated to shaping great places. As the founder of a successful architecture firm in South Orange County, Steve brings 36 years of professional experience in design, planning, and project management to his civic service.",
     "Steve's deep commitment to San Clemente is reflected in his extensive volunteer service. He has served 4.5 years on the San Clemente Planning Commission and 4.5 years on the Design Review Subcommittee, helping guide thoughtful development that preserves our city's unique coastal character.",
     "Whether he's surfing at T-Street, walking the pier with his wife, or working with fellow commissioners on land-use policy, Steve is driven by a simple belief: San Clemente deserves leaders who listen, lead with integrity, and put residents first.",
   ],
-  qualifications: [
-    "4.5 years on San Clemente Planning Commission",
-    "4.5 years on San Clemente Design Review Subcommittee",
-    "36 years running a successful architecture firm in South Orange County",
-    "Proven record of community leadership and civic engagement",
+  stats: [
+    { number: "4.5 years", label: "Planning Commission" },
+    { number: "4.5 years", label: "Design Review" },
+    { number: "36 years", label: "Architecture" },
+    { number: "20+ years", label: "San Clemente Resident" },
   ],
 } as const;
 
 export const ISSUES = {
-  heading: "The Issues That Matter",
+  heading: "the issues",
   subheading: "Steve is focused on the priorities that San Clemente families care about most.",
   items: [
     {
-      icon: "Shield" as const,
       title: "Safe Neighborhoods and Beaches for All",
       description:
         "Strengthening public safety resources and supporting our police, fire, and lifeguard teams to keep our neighborhoods and beaches safe for families.",
     },
     {
-      icon: "Building" as const,
       title: "Protecting Our Small-Town Coastal Character",
       description:
         "Preserving the charm and identity of San Clemente by ensuring development respects our community's scale, architecture, and coastal village feel.",
     },
     {
-      icon: "Heart" as const,
       title: "Compassionate, Accountable Homelessness Solutions",
       description:
         "Addressing homelessness with dignity and accountability, connecting people with services while maintaining clean, safe public spaces.",
     },
     {
-      icon: "DollarSign" as const,
       title: "Responsible, Transparent Stewardship of Taxpayer Dollars",
       description:
         "Demanding fiscal responsibility at City Hall, prioritizing essential services, and ensuring taxpayer money is spent wisely and transparently.",
     },
     {
-      icon: "Landmark" as const,
       title: "Local Control Over Our Community's Future",
       description:
         "Fighting to keep decision-making power local and pushing back against unfunded state mandates that threaten our community's self-determination.",
     },
     {
-      icon: "Waves" as const,
       title: "Safeguarding Our Coastline for the Next Generation",
       description:
         "Protecting our beaches, trails, and open spaces through responsible environmental stewardship and sustainable coastal management.",
     },
     {
-      icon: "Users" as const,
       title: "Supporting Strong Families and Community Values",
       description:
         "Championing family-friendly policies, supporting local schools and youth programs, and fostering a connected, vibrant community for all ages.",
@@ -97,7 +88,7 @@ export const ISSUES = {
 } as const;
 
 export const ENDORSEMENTS = {
-  heading: "Endorsed By Leaders Who Know San Clemente",
+  heading: "endorsements",
   items: [
     {
       name: "Steve Knoblock",
@@ -118,42 +109,37 @@ export const ENDORSEMENTS = {
 } as const;
 
 export const GET_INVOLVED = {
-  heading: "Join the Movement",
-  subheading: "There are many ways to support Steve's campaign for City Council.",
+  heading: "get involved",
   items: [
     {
-      icon: "HandHeart" as const,
       title: "Volunteer",
-      description: "Knock on doors, make phone calls, or help at events. Every hour makes a difference.",
-      cta: "Sign Up to Volunteer",
+      description: "Knock on doors, make phone calls, or help at events.",
+      cta: "Sign up",
       href: "#contact",
     },
     {
-      icon: "MessageSquare" as const,
       title: "Endorse Steve",
-      description: "Add your name to the growing list of San Clemente residents supporting Steve.",
-      cta: "Add Your Endorsement",
+      description: "Add your name to the growing list of supporters.",
+      cta: "Add your name",
       href: "#contact",
     },
     {
-      icon: "Share2" as const,
       title: "Spread the Word",
-      description: "Share Steve's message with your neighbors, friends, and family in San Clemente.",
-      cta: "Follow on Social Media",
+      description: "Share Steve's message with your neighbors and friends.",
+      cta: "Follow on social",
       href: "https://www.facebook.com/profile.php?id=61577622498498",
     },
     {
-      icon: "BadgeDollarSign" as const,
       title: "Donate",
-      description: "Your financial support helps Steve reach every voter in District One.",
-      cta: "Contribute Now",
+      description: "Your financial support helps Steve reach every voter.",
+      cta: "Contribute now",
       href: "#donate",
     },
   ],
 } as const;
 
 export const DONATE = {
-  heading: "Support the Campaign",
+  heading: "support the campaign",
   subheading:
     "Your contribution helps Steve bring his message of responsible leadership to every corner of District One.",
   zellePhone: "(949) 637-2833",
@@ -162,20 +148,8 @@ export const DONATE = {
   amounts: [25, 50, 100, 250, 500, 1000],
 } as const;
 
-export const CAMPAIGN_STRIP = {
-  heading: "San Clemente Deserves Better.",
-  cta: "Join the Movement",
-  ctaHref: "#get-involved",
-} as const;
-
-export const ACTION_STRIP = {
-  heading: "Ready to Make a Difference?",
-  cta: "Donate Now",
-  ctaHref: "#donate",
-} as const;
-
 export const CONTACT = {
-  heading: "Stay Connected",
+  heading: "stay connected",
   subheading:
     "Sign up to receive campaign updates, volunteer opportunities, and information about how you can help Steve win in November 2026.",
 } as const;

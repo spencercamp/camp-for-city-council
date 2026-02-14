@@ -12,26 +12,20 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-16 lg:mb-20 text-center", className)}>
+    <div className={cn("mb-16 lg:mb-20", className)}>
       <h2
         className={cn(
-          "text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl",
-          light ? "text-white" : "text-navy"
+          "text-4xl font-bold tracking-tight sm:text-5xl lowercase",
+          light ? "text-white" : "text-blue"
         )}
       >
         {children}
       </h2>
-      <div
-        className={cn(
-          "mx-auto mt-4 h-1 w-16 rounded-full",
-          light ? "bg-amber" : "bg-red"
-        )}
-      />
       {subtitle && (
         <p
           className={cn(
-            "mx-auto mt-4 max-w-2xl text-lg lg:text-xl",
-            light ? "text-white/80" : "text-gray-600"
+            "mt-4 max-w-2xl text-lg",
+            light ? "text-white/60" : "text-gray-600"
           )}
         >
           {subtitle}

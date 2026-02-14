@@ -38,17 +38,20 @@ export function Contact() {
     }
   };
 
+  const inputClass =
+    "w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none transition-colors";
+
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-36 bg-gradient-to-b from-cream to-white">
+    <section id="contact" className="py-24 lg:py-36 bg-white">
       <Container>
         <AnimatedSection>
           <SectionHeading subtitle={CONTACT.subheading}>
             {CONTACT.heading}
           </SectionHeading>
 
-          <div className="mx-auto max-w-2xl">
+          <div className="max-w-2xl">
             {state === "success" ? (
-              <div className="rounded-xl bg-green-50 p-8 text-center border border-green-200">
+              <div className="rounded-md bg-green-50 p-8 text-center border border-green-200">
                 <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-green-800 mb-2">
                   Thank You!
@@ -65,73 +68,73 @@ export function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 bg-white rounded-3xl p-8 shadow-lg">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                      First Name *
+                    <label htmlFor="firstName" className="block text-xs text-gray-500 mb-1 lowercase">
+                      first name *
                     </label>
                     <input
                       type="text"
                       id="firstName"
                       name="firstName"
                       required
-                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className={inputClass}
                       placeholder="First name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Last Name *
+                    <label htmlFor="lastName" className="block text-xs text-gray-500 mb-1 lowercase">
+                      last name *
                     </label>
                     <input
                       type="text"
                       id="lastName"
                       name="lastName"
                       required
-                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className={inputClass}
                       placeholder="Last name"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address *
+                  <label htmlFor="email" className="block text-xs text-gray-500 mb-1 lowercase">
+                    email address *
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                    className={inputClass}
                     placeholder="you@example.com"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Cell Phone
+                    <label htmlFor="phone" className="block text-xs text-gray-500 mb-1 lowercase">
+                      cell phone
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className={inputClass}
                       placeholder="(555) 555-5555"
                     />
                   </div>
                   <div>
-                    <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
-                      Zip Code
+                    <label htmlFor="zipCode" className="block text-xs text-gray-500 mb-1 lowercase">
+                      zip code
                     </label>
                     <input
                       type="text"
                       id="zipCode"
                       name="zipCode"
                       pattern="[0-9]{5}"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className={inputClass}
                       placeholder="92672"
                     />
                   </div>
@@ -143,7 +146,7 @@ export function Contact() {
                     type="checkbox"
                     id="smsOptIn"
                     name="smsOptIn"
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-navy focus:ring-navy"
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue focus:ring-blue"
                   />
                   <label htmlFor="smsOptIn" className="text-xs text-gray-500 leading-relaxed">
                     I agree to receive text messages from Steve Camp for City Council. Message and data rates may apply. Reply STOP to opt out at any time.
@@ -161,7 +164,6 @@ export function Contact() {
                   type="submit"
                   variant="primary"
                   size="lg"
-                  className="w-full"
                   disabled={state === "submitting"}
                 >
                   {state === "submitting" ? (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Google_Sans_Flex } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -9,7 +9,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const googleSansFlex = Google_Sans_Flex({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -72,7 +72,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${montserrat.variable} ${googleSansFlex.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"

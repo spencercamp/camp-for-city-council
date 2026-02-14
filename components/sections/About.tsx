@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -9,66 +8,70 @@ import { ABOUT } from "@/lib/constants";
 
 export function About() {
   return (
-    <section id="about" className="py-16 md:py-24 lg:py-36 bg-gradient-to-b from-white via-white to-cream/50">
+    <section id="about" className="py-24 lg:py-36 bg-white">
       <Container>
         <SectionHeading>{ABOUT.heading}</SectionHeading>
 
-        {/* Full-width hero photo */}
+        {/* Bio text */}
         <AnimatedSection>
-          <div className="mb-12 lg:mb-16">
-            <Image
-              src="/images/couple.jpg"
-              alt="Steve Camp with his wife"
-              width={1200}
-              height={500}
-              className="rounded-2xl shadow-lg w-full h-[400px] md:h-[500px] object-cover"
-            />
+          <div className="max-w-3xl space-y-5 mb-16">
+            {ABOUT.bio.map((paragraph, i) => (
+              <p key={i} className="text-lg text-gray-700 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </AnimatedSection>
 
-        {/* Asymmetric grid: text 3/5, photos 2/5 */}
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-          {/* Text — 3 columns */}
-          <AnimatedSection className="lg:col-span-3">
-            <div className="space-y-5">
-              {ABOUT.bio.map((paragraph, i) => (
-                <p key={i} className="text-gray-700 leading-relaxed text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+        {/* Stat strip */}
+        <AnimatedSection>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-16 md:mb-20">
+            {ABOUT.stats.map((stat, i) => (
+              <div
+                key={i}
+                className={`py-6 px-4 text-center ${
+                  i < ABOUT.stats.length - 1 ? "md:border-r md:border-gray-200" : ""
+                }`}
+              >
+                <p className="text-2xl md:text-3xl font-bold text-blue">{stat.number}</p>
+                <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
 
-            <div className="mt-8 space-y-3">
-              <h3 className="text-xl font-bold text-navy">Qualifications</h3>
-              {ABOUT.qualifications.map((qual, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-red mt-0.5 shrink-0" />
-                  <span className="text-gray-700">{qual}</span>
-                </div>
-              ))}
+        {/* Asymmetric image grid */}
+        <AnimatedSection>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 md:col-span-7">
+              <Image
+                src="/images/couple.jpg"
+                alt="Steve Camp with his wife"
+                width={800}
+                height={600}
+                className="w-full h-72 md:h-96 object-cover rounded-md"
+              />
             </div>
-          </AnimatedSection>
-
-          {/* Photos — 2 columns */}
-          <AnimatedSection delay={0.2} className="lg:col-span-2">
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
+            <div className="col-span-6 md:col-span-5 mt-0 md:mt-8">
               <Image
                 src="/images/family-1.jpg"
                 alt="Steve Camp with family"
-                width={400}
+                width={500}
                 height={400}
-                className="rounded-xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover"
+                className="w-full h-56 md:h-72 object-cover rounded-md"
               />
+            </div>
+            <div className="col-span-6 md:col-span-4 md:-mt-16">
               <Image
                 src="/images/surfing.jpg"
                 alt="Steve Camp surfing"
                 width={400}
-                height={400}
-                className="rounded-xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover"
+                height={300}
+                className="w-full h-48 md:h-56 object-cover rounded-md"
               />
             </div>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
       </Container>
     </section>
   );
