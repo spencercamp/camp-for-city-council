@@ -17,7 +17,7 @@ export function SectionHeading({
     <div className={cn("mb-16 lg:mb-20", centered && "text-center", className)}>
       <h2
         className={cn(
-          "text-4xl font-bold tracking-tight sm:text-5xl lowercase",
+          "text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tighter leading-[0.9]",
           light ? "text-white" : "text-blue"
         )}
       >
@@ -26,7 +26,7 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-lg",
+            "mt-6 max-w-2xl text-lg",
             light ? "text-white/60" : "text-gray-600",
             centered && "mx-auto"
           )}
