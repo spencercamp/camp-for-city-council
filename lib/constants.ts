@@ -91,40 +91,54 @@ export const ISSUES = {
 
 export const QUALIFICATIONS = {
   heading: "Qualifications",
+  subheading: "Decades of experience serving San Clemente.",
   items: [
     {
-      bold: "4.5 years",
-      text: "of service on the San Clemente Planning Commission",
+      value: 4.5,
+      suffix: "years",
+      label: "Planning Commission",
+      description: "Service on the San Clemente Planning Commission",
     },
     {
-      bold: "4.5 years",
-      text: "of service on the San Clemente Design Review Subcommittee",
+      value: 4.5,
+      suffix: "years",
+      label: "Design Review",
+      description: "Service on the San Clemente Design Review Subcommittee",
     },
     {
-      bold: "36 years",
-      text: "running a successful architecture firm in South Orange County",
+      value: 36,
+      suffix: "years",
+      label: "Architecture",
+      description: "Running a successful architecture firm in South Orange County",
     },
     {
-      bold: "Proven record",
-      text: "of community leadership",
+      value: null,
+      displayText: "Proven record",
+      label: "Community Leadership",
+      description: "Of dedicated community service and civic engagement",
     },
   ],
 } as const;
 
 export const ENDORSEMENTS = {
   heading: "Endorsed By",
+  subheading:
+    "Trusted by San Clemente's proven leaders.",
   items: [
     {
       name: "Steve Knoblock",
       title: "Mayor Pro Tem",
+      context: "City of San Clemente",
     },
     {
       name: "Victor Cabral",
       title: "Former Mayor & Current City Council Member",
+      context: "City of San Clemente",
     },
     {
       name: "Cameron Cosgrove",
       title: "Chairman, San Clemente Planning Commission",
+      context: "City of San Clemente",
     },
   ],
 } as const;

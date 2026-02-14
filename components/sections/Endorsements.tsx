@@ -1,63 +1,39 @@
 "use client";
 
+import { BadgeCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { QUALIFICATIONS, ENDORSEMENTS } from "@/lib/constants";
+import { ENDORSEMENTS } from "@/lib/constants";
 
 export function Endorsements() {
   return (
-    <section id="endorsements" className="py-24 lg:py-36 bg-cream">
+    <section id="endorsements" className="py-24 lg:py-36 bg-white">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20">
-          {/* Qualifications */}
-          <AnimatedSection>
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-1 h-8 bg-red rounded-full" />
-                <h2 className="text-2xl md:text-3xl font-bold text-blue-dark">
-                  {QUALIFICATIONS.heading}
-                </h2>
-              </div>
-              <div className="space-y-6">
-                {QUALIFICATIONS.items.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="mt-1.5 w-3 h-3 rounded-full bg-amber flex-shrink-0" />
-                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                      <span className="font-bold text-blue-dark">{item.bold}</span>{" "}
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+        <SectionHeading subtitle={ENDORSEMENTS.subheading}>
+          {ENDORSEMENTS.heading}
+        </SectionHeading>
 
-          {/* Endorsed By */}
-          <AnimatedSection delay={0.15}>
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-1 h-8 bg-red rounded-full" />
-                <h2 className="text-2xl md:text-3xl font-bold text-blue-dark">
-                  {ENDORSEMENTS.heading}
-                </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {ENDORSEMENTS.items.map((endorser, i) => (
+            <AnimatedSection key={endorser.name} delay={i * 0.1}>
+              <div className="group relative bg-offwhite rounded-xl p-8 text-center overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="flex justify-center mb-5">
+                  <BadgeCheck className="w-10 h-10 text-amber" />
+                </div>
+                <h3 className="text-xl font-bold text-blue-dark mb-1">
+                  {endorser.name}
+                </h3>
+                <p className="text-red font-medium text-sm mb-2">
+                  {endorser.title}
+                </p>
+                <p className="text-gray-500 text-sm">{endorser.context}</p>
+
+                {/* Hover accent bar */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-0 bg-red rounded-full transition-all duration-300 group-hover:w-2/3" />
               </div>
-              <div className="space-y-6">
-                {ENDORSEMENTS.items.map((endorser) => (
-                  <div key={endorser.name} className="flex items-start gap-4">
-                    <span className="text-amber mt-0.5 text-lg flex-shrink-0">&#9733;</span>
-                    <div>
-                      <p className="font-bold text-blue-dark text-base md:text-lg">
-                        {endorser.name}
-                      </p>
-                      <p className="text-sm text-gray-500 mt-0.5">
-                        {endorser.title}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          ))}
         </div>
       </Container>
     </section>
