@@ -50,7 +50,7 @@ mark {
 }
 
 .animate-marquee {
-  animation: marquee-scroll 60s linear infinite;
+  animation: marquee-scroll 120s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
