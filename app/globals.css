@@ -12,8 +12,8 @@
   --color-cream: #FFF8F0;
   --color-cream-dark: #FFF0E0;
   --color-cream-light: #FFFCF7;
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Montserrat", system-ui, sans-serif;
+  --font-sans: "Google Sans Flex", system-ui, sans-serif;
 }
 
 html {

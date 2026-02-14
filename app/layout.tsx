@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Montserrat, Google_Sans_Flex } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const montserrat = Montserrat({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const inter = Inter({
+const googleSansFlex = Google_Sans_Flex({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -72,7 +72,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${googleSansFlex.variable}`}>
       <head>
         <script
           type="application/ld+json"
