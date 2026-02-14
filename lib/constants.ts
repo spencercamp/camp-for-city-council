@@ -29,14 +29,14 @@ export const HERO = {
   badge: "November 2026",
   subtitle: "For San Clemente City Council — District One",
   tagline: "Experience. Integrity. Community.",
-  cta1: "Donate Now",
+  cta1: "Donate",
   cta2: "Learn More",
 } as const;
 
 export const ABOUT = {
   heading: "about steve",
   bio: [
-    "Steve Camp has called San Clemente home for over two decades, raising his family in the community he loves and building a career dedicated to shaping great places. As the founder of a successful architecture firm in South Orange County, Steve brings 36 years of professional experience in design, planning, and project management to his civic service.",
+    "Steve Camp has called San Clemente home for over 30 years, raising his family in the community he loves and building a career dedicated to shaping great places. As the founder of a successful architecture firm in South Orange County, Steve brings 36 years of professional experience in design, planning, and project management to his civic service.",
     "Steve's deep commitment to San Clemente is reflected in his extensive volunteer service. He has served 4.5 years on the San Clemente Planning Commission and 4.5 years on the Design Review Subcommittee, helping guide thoughtful development that preserves our city's unique coastal character.",
     "Whether he's surfing at T-Street, walking the pier with his wife, or working with fellow commissioners on land-use policy, Steve is driven by a simple belief: San Clemente deserves leaders who listen, lead with integrity, and put residents first.",
   ],
@@ -44,7 +44,7 @@ export const ABOUT = {
     { number: "4.5 years", label: "Planning Commission" },
     { number: "4.5 years", label: "Design Review" },
     { number: "36 years", label: "Architecture" },
-    { number: "20+ years", label: "San Clemente Resident" },
+    { number: "30+ years", label: "San Clemente Resident" },
   ],
 } as const;
 
