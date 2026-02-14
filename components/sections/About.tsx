@@ -21,10 +21,10 @@ export function About() {
                   For more than 30 years, San Clemente has been my family&apos;s home and the community I am proud to serve. As an architect and small business owner with <mark>36 years of experience in design, planning, and project management</mark>, I understand how to balance growth with the character that makes our city special.
                 </p>
                 <p className="font-serif text-lg sm:text-xl text-gray-600 leading-relaxed">
-                  My service on the <mark>Planning Commission and Design Review Subcommittee</mark> has been focused on protecting our coastal charm while allowing thoughtful, responsible development. I&apos;ve spent <mark>9 years listening to residents, asking hard questions</mark>, and working to ensure projects fit San Clemente—not the other way around.
+                  My service on the <mark>Planning Commission and Design Review Subcommittee</mark> has been focused on protecting our coastal charm while allowing thoughtful, responsible development. I&apos;ve spent <mark>4.5 years listening to residents, asking hard questions</mark>, and working to ensure projects fit San Clemente—not the other way around.
                 </p>
                 <p className="font-serif text-lg sm:text-xl text-gray-600 leading-relaxed">
-                  Whether I&apos;m surfing at T-Street, walking the pier with my wife, or reviewing land-use policies, my goal is the same: to <mark>put residents first, lead with integrity, and keep San Clemente a safe, vibrant community for all</mark>.
+                  Whether I&apos;m surfing at Trestles, walking the Pier with my wife, or reviewing land-use policies, my goal is the same: to <mark>put residents first, lead with integrity, and keep San Clemente a safe, vibrant community for all</mark>.
                 </p>
               </div>
             </AnimatedSection>
