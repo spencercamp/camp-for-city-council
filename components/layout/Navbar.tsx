@@ -41,10 +41,10 @@ export function Navbar() {
             alt="Steve Camp for City Council"
             width={32}
             height={32}
-            className="h-8 w-auto brightness-0 invert rounded"
+            className="h-8 w-auto rounded"
           />
-          <span className="text-white text-sm tracking-wide lowercase">
-            steve camp
+          <span className="text-white text-sm tracking-wide">
+            Steve Camp
           </span>
         </a>
 
@@ -54,16 +54,16 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm tracking-wide text-white/70 hover:text-white transition-colors lowercase"
+              className="text-sm tracking-wide text-white/70 hover:text-white transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#donate"
-            className="bg-red text-white rounded-full px-4 py-1.5 text-sm font-medium hover:bg-red-dark transition-colors lowercase"
+            className="bg-red text-white rounded-full px-4 py-1.5 text-sm font-medium hover:bg-red-dark transition-colors"
           >
-            donate
+            Donate
           </a>
         </div>
 
@@ -91,7 +91,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-3xl font-bold text-white hover:text-red-light transition-colors lowercase tracking-tight"
+              className="text-3xl font-bold text-white hover:text-red-light transition-colors tracking-tight"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -99,10 +99,10 @@ export function Navbar() {
           ))}
           <a
             href="#donate"
-            className="bg-red text-white rounded-full px-8 py-3 text-lg font-semibold hover:bg-red-dark transition-colors lowercase"
+            className="bg-red text-white rounded-full px-8 py-3 text-lg font-semibold hover:bg-red-dark transition-colors"
             onClick={() => setMobileOpen(false)}
           >
-            donate
+            Donate
           </a>
         </div>
       )}

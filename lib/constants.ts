@@ -16,10 +16,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "about", href: "#about" },
-  { label: "issues", href: "#issues" },
-  { label: "endorsements", href: "#endorsements" },
-  { label: "donate", href: "#donate" },
+  { label: "About", href: "#about" },
+  { label: "Issues", href: "#issues" },
+  { label: "Endorsements", href: "#endorsements" },
+  { label: "Donate", href: "#donate" },
 ] as const;
 
 export const HERO = {

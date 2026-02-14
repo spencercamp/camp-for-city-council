@@ -70,15 +70,15 @@ export function About() {
               className="w-full h-56 md:h-72 object-cover rounded-lg"
             />
             <Image
-              src="/images/surfing.jpg"
-              alt="Steve Camp surfing"
+              src="/images/family-2.jpg"
+              alt="Steve Camp with family"
               width={500}
               height={400}
               className="w-full h-56 md:h-72 object-cover rounded-lg"
             />
             <Image
-              src="/images/family-2.jpg"
-              alt="Steve Camp with family"
+              src="/images/surfing.jpg"
+              alt="Steve Camp surfing"
               width={500}
               height={400}
               className="w-full h-56 md:h-72 object-cover rounded-lg col-span-2 md:col-span-1"
