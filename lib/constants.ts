@@ -25,7 +25,9 @@ export const NAV_LINKS = [
 
 export const HERO = {
   headline: "Fighting for San Clemente",
+  subtitle: "FOR DISTRICT ONE 2026",
   tagline: "Committed to Public Safety, Fiscal Responsibility, and Quality of Life",
+  body: "With nearly a decade on the Planning Commission and Design Review Subcommittee, Steve Camp is ready to bring experienced, principled leadership to our City Council.",
   cta1: "Donate Now",
   cta2: "Get Involved",
 } as const;
