@@ -89,23 +89,42 @@ export const ISSUES = {
   ],
 } as const;
 
+export const QUALIFICATIONS = {
+  heading: "Qualifications",
+  items: [
+    {
+      bold: "4.5 years",
+      text: "of service on the San Clemente Planning Commission",
+    },
+    {
+      bold: "4.5 years",
+      text: "of service on the San Clemente Design Review Subcommittee",
+    },
+    {
+      bold: "36 years",
+      text: "running a successful architecture firm in South Orange County",
+    },
+    {
+      bold: "Proven record",
+      text: "of community leadership",
+    },
+  ],
+} as const;
+
 export const ENDORSEMENTS = {
-  heading: "endorsements",
+  heading: "Endorsed By",
   items: [
     {
       name: "Steve Knoblock",
-      title: "Mayor Pro Tem, City of San Clemente",
-      quote: "Steve Camp has the experience and integrity San Clemente needs on our City Council.",
+      title: "Mayor Pro Tem",
     },
     {
       name: "Victor Cabral",
       title: "Former Mayor & Current City Council Member",
-      quote: "Steve's years of service on the Planning Commission make him uniquely qualified to lead.",
     },
     {
       name: "Cameron Cosgrove",
       title: "Chairman, San Clemente Planning Commission",
-      quote: "I've worked alongside Steve for years. He's thoughtful, principled, and always puts residents first.",
     },
   ],
 } as const;
