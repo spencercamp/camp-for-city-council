@@ -8,7 +8,7 @@ import { QUALIFICATIONS } from "@/lib/constants";
 
 export function Qualifications() {
   return (
-    <section className="py-24 lg:py-36 bg-blue-dark">
+    <section id="qualifications" className="py-24 lg:py-36 bg-blue-dark">
       <Container>
         <SectionHeading light centered subtitle={QUALIFICATIONS.subheading}>
           {QUALIFICATIONS.heading}
