@@ -10,66 +10,79 @@ export function About() {
   return (
     <section id="about" className="py-24 lg:py-36 bg-white">
       <Container>
-        <SectionHeading>{ABOUT.heading}</SectionHeading>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left column — bio */}
+          <div className="lg:col-span-7">
+            <SectionHeading>{ABOUT.heading}</SectionHeading>
 
-        {/* Bio text */}
-        <AnimatedSection>
-          <div className="max-w-3xl space-y-5 mb-16">
-            {ABOUT.bio.map((paragraph, i) => (
-              <p key={i} className="text-lg text-gray-700 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            <AnimatedSection>
+              <div className="space-y-5">
+                {ABOUT.bio.map((paragraph, i) => (
+                  <p key={i} className="text-lg text-gray-600 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+
+          {/* Right column — photo */}
+          <div className="lg:col-span-5">
+            <AnimatedSection delay={0.2}>
+              <div className="relative">
+                <Image
+                  src="/images/couple.jpg"
+                  alt="Steve Camp with his wife"
+                  width={600}
+                  height={750}
+                  className="w-full aspect-[4/5] object-cover rounded-lg"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
 
         {/* Stat strip */}
         <AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-16 md:mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-20 bg-blue-dark rounded-xl overflow-hidden">
             {ABOUT.stats.map((stat, i) => (
               <div
                 key={i}
-                className={`py-6 px-4 text-center ${
-                  i < ABOUT.stats.length - 1 ? "md:border-r md:border-gray-200" : ""
+                className={`py-8 px-6 text-center ${
+                  i < ABOUT.stats.length - 1 ? "md:border-r md:border-white/10" : ""
                 }`}
               >
-                <p className="text-2xl md:text-3xl font-bold text-blue">{stat.number}</p>
-                <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+                <p className="text-2xl md:text-3xl font-bold text-white">{stat.number}</p>
+                <p className="text-sm text-white/50 mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
         </AnimatedSection>
 
-        {/* Asymmetric image grid */}
+        {/* Photo grid */}
         <AnimatedSection>
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 md:col-span-7">
-              <Image
-                src="/images/couple.jpg"
-                alt="Steve Camp with his wife"
-                width={800}
-                height={600}
-                className="w-full h-72 md:h-96 object-cover rounded-md"
-              />
-            </div>
-            <div className="col-span-6 md:col-span-5 mt-0 md:mt-8">
-              <Image
-                src="/images/family-1.jpg"
-                alt="Steve Camp with family"
-                width={500}
-                height={400}
-                className="w-full h-56 md:h-72 object-cover rounded-md"
-              />
-            </div>
-            <div className="col-span-6 md:col-span-4 md:-mt-16">
-              <Image
-                src="/images/surfing.jpg"
-                alt="Steve Camp surfing"
-                width={400}
-                height={300}
-                className="w-full h-48 md:h-56 object-cover rounded-md"
-              />
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-16">
+            <Image
+              src="/images/family-1.jpg"
+              alt="Steve Camp with family"
+              width={500}
+              height={400}
+              className="w-full h-56 md:h-72 object-cover rounded-lg"
+            />
+            <Image
+              src="/images/surfing.jpg"
+              alt="Steve Camp surfing"
+              width={500}
+              height={400}
+              className="w-full h-56 md:h-72 object-cover rounded-lg"
+            />
+            <Image
+              src="/images/family-2.jpg"
+              alt="Steve Camp with family"
+              width={500}
+              height={400}
+              className="w-full h-56 md:h-72 object-cover rounded-lg col-span-2 md:col-span-1"
+            />
           </div>
         </AnimatedSection>
       </Container>

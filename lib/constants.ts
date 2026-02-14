@@ -25,7 +25,9 @@ export const NAV_LINKS = [
 export const HERO = {
   name1: "STEVE",
   name2: "CAMP",
-  subtitle: "for san clemente city council | district one",
+  badge: "November 2026",
+  subtitle: "For San Clemente City Council — District One",
+  tagline: "Experience. Integrity. Community.",
   cta1: "Donate Now",
   cta2: "Learn More",
 } as const;

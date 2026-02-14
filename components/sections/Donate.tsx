@@ -32,16 +32,16 @@ export function Donate() {
     <section id="donate" className="py-24 lg:py-36 bg-offwhite">
       <Container>
         <AnimatedSection>
-          <SectionHeading subtitle={DONATE.subheading}>
-            {DONATE.heading}
-          </SectionHeading>
+          <div className="bg-white rounded-2xl p-8 md:p-12 max-w-2xl shadow-sm border border-gray-100">
+            <SectionHeading subtitle={DONATE.subheading} className="mb-10 lg:mb-12">
+              {DONATE.heading}
+            </SectionHeading>
 
-          <div className="max-w-2xl">
             {/* Zelle number */}
             <div className="mb-8">
               <p className="text-sm text-gray-500 mb-2 lowercase">send via zelle to</p>
               <div className="flex items-center gap-3">
-                <span className="text-4xl font-bold text-blue tracking-wide">
+                <span className="text-3xl md:text-4xl font-bold text-blue tracking-wide">
                   {DONATE.zellePhone}
                 </span>
                 <button
@@ -74,7 +74,7 @@ export function Donate() {
                     className={`rounded-full py-2.5 px-5 text-base font-bold transition-all duration-200 cursor-pointer ${
                       selectedAmount === amount
                         ? "border-2 border-red bg-red text-white"
-                        : "border-2 border-gray-300 text-gray-700 hover:border-red hover:text-red"
+                        : "border-2 border-gray-200 text-gray-700 hover:border-red hover:text-red"
                     }`}
                   >
                     ${amount.toLocaleString()}
@@ -83,7 +83,7 @@ export function Donate() {
               </div>
             </div>
 
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               {DONATE.zelleNote}
             </p>
           </div>

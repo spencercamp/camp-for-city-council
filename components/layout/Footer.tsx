@@ -5,7 +5,10 @@ import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="bg-blue-dark py-12 text-white relative border-t border-white/10">
+    <footer className="bg-blue-dark py-16 text-white relative">
+      {/* Red accent stripe */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-red" />
+
       <Container>
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo + name */}
@@ -71,7 +74,7 @@ export function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <p className="mt-8 text-center text-xs text-white/30 lowercase">
+        <p className="mt-10 text-center text-xs text-white/25 lowercase">
           {SITE.disclaimer}
         </p>
       </Container>

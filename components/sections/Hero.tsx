@@ -7,94 +7,126 @@ import { HERO } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="bg-blue-dark min-h-screen flex flex-col justify-center overflow-hidden">
-      <div className="w-full px-6 sm:px-10 lg:px-16 py-24 md:py-32">
-        {/* Massive name */}
-        <div className="mb-8 md:mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[clamp(4rem,14vw,16rem)] font-extrabold leading-[0.85] tracking-tighter text-white uppercase"
-          >
-            {HERO.name1}
-          </motion.h1>
+    <section className="bg-blue-dark min-h-screen flex flex-col justify-center overflow-hidden relative">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-dark via-blue-dark to-blue/40" />
 
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-24 md:py-32">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left column — messaging */}
+          <div>
+            {/* Campaign badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6"
+            >
+              <span className="inline-block text-xs sm:text-sm tracking-[0.2em] text-white/50 uppercase border border-white/15 rounded-full px-4 py-1.5">
+                {HERO.badge}
+              </span>
+            </motion.div>
+
+            {/* Name */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-[clamp(3.5rem,10vw,9rem)] font-extrabold leading-[0.85] tracking-tighter text-white uppercase"
+            >
+              {HERO.name1}
+            </motion.h1>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              className="h-1 bg-red w-32 sm:w-40 my-3 origin-left"
+            />
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+              className="text-[clamp(3.5rem,10vw,9rem)] font-extrabold leading-[0.85] tracking-tighter text-white uppercase"
+            >
+              {HERO.name2}
+            </motion.h1>
+
+            {/* Position — large and clear */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-6 text-lg sm:text-xl text-white/70 tracking-wide max-w-md"
+            >
+              {HERO.subtitle}
+            </motion.p>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="mt-4 text-base sm:text-lg font-semibold text-red-light tracking-wide"
+            >
+              {HERO.tagline}
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="mt-8 flex flex-col sm:flex-row gap-4"
+            >
+              <Button href="#donate" variant="primary" size="lg">
+                {HERO.cta1}
+              </Button>
+              <Button href="#about" variant="outline" size="lg">
+                {HERO.cta2}
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right column — photo */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-            className="h-0.5 bg-red w-[60%] my-2 md:my-3 origin-left"
-          />
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-[clamp(4rem,14vw,16rem)] font-extrabold leading-[0.85] tracking-tighter text-white uppercase"
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            {HERO.name2}
-          </motion.h1>
+            <div className="relative">
+              <Image
+                src="/images/headshot.jpg"
+                alt="Steve Camp"
+                width={700}
+                height={875}
+                className="w-full max-w-lg mx-auto aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
+                priority
+              />
+              {/* Accent border */}
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-red/30 rounded-lg -z-10" />
+            </div>
+          </motion.div>
 
-          <motion.p
+          {/* Mobile photo — below text */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-right mt-4 text-sm sm:text-base tracking-[0.15em] text-white/60 lowercase"
-          >
-            {HERO.subtitle}
-          </motion.p>
-        </div>
-
-        {/* Asymmetric image pair */}
-        <div className="flex gap-4 md:gap-6 items-start max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-[60%]"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="lg:hidden"
           >
             <Image
               src="/images/headshot.jpg"
               alt="Steve Camp"
-              width={800}
-              height={1000}
-              className="w-full aspect-[4/5] object-cover object-top rounded-md"
-              priority
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="w-[38%] mt-10 md:mt-16"
-          >
-            <Image
-              src="/images/couple.jpg"
-              alt="Steve Camp with his wife"
               width={600}
-              height={800}
-              className="w-full aspect-[3/4] object-cover rounded-md"
+              height={750}
+              className="w-full max-w-sm aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
               priority
             />
           </motion.div>
         </div>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4"
-        >
-          <Button href="#donate" variant="primary" size="lg">
-            {HERO.cta1}
-          </Button>
-          <Button href="#about" variant="outline" size="lg">
-            {HERO.cta2}
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

@@ -44,141 +44,160 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 lg:py-36 bg-white">
       <Container>
-        <AnimatedSection>
-          <SectionHeading subtitle={CONTACT.subheading}>
-            {CONTACT.heading}
-          </SectionHeading>
-
-          <div className="max-w-2xl">
-            {state === "success" ? (
-              <div className="rounded-md bg-green-50 p-8 text-center border border-green-200">
-                <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-green-800 mb-2">
-                  Thank You!
-                </h3>
-                <p className="text-green-700">
-                  You&apos;re signed up to receive campaign updates. Together, we&apos;ll
-                  make a difference for San Clemente.
-                </p>
-                <button
-                  onClick={() => setState("idle")}
-                  className="mt-4 text-sm text-green-600 underline hover:text-green-800 cursor-pointer"
-                >
-                  Sign up another supporter
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-xs text-gray-500 mb-1 lowercase">
-                      first name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      className={inputClass}
-                      placeholder="First name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-xs text-gray-500 mb-1 lowercase">
-                      last name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      className={inputClass}
-                      placeholder="Last name"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-xs text-gray-500 mb-1 lowercase">
-                    email address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className={inputClass}
-                    placeholder="you@example.com"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-xs text-gray-500 mb-1 lowercase">
-                      cell phone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className={inputClass}
-                      placeholder="(555) 555-5555"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="zipCode" className="block text-xs text-gray-500 mb-1 lowercase">
-                      zip code
-                    </label>
-                    <input
-                      type="text"
-                      id="zipCode"
-                      name="zipCode"
-                      pattern="[0-9]{5}"
-                      className={inputClass}
-                      placeholder="92672"
-                    />
-                  </div>
-                </div>
-
-                {/* SMS opt-in */}
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="smsOptIn"
-                    name="smsOptIn"
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue focus:ring-blue"
-                  />
-                  <label htmlFor="smsOptIn" className="text-xs text-gray-500 leading-relaxed">
-                    I agree to receive text messages from Steve Camp for City Council. Message and data rates may apply. Reply STOP to opt out at any time.
-                  </label>
-                </div>
-
-                {state === "error" && (
-                  <div className="flex items-center gap-2 text-red-600 text-sm">
-                    <AlertCircle className="h-4 w-4" />
-                    <span>Something went wrong. Please try again.</span>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  disabled={state === "submitting"}
-                >
-                  {state === "submitting" ? (
-                    "Sending..."
-                  ) : (
-                    <span className="flex items-center justify-center gap-2">
-                      <Send className="h-4 w-4" />
-                      Join the Campaign
-                    </span>
-                  )}
-                </Button>
-              </form>
-            )}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+          {/* Left — heading and context */}
+          <div>
+            <SectionHeading subtitle={CONTACT.subheading} className="mb-8 lg:mb-10">
+              {CONTACT.heading}
+            </SectionHeading>
+            <div className="hidden lg:block space-y-4 text-gray-500 text-sm">
+              <p>Have questions? Reach out directly:</p>
+              <p>
+                <a href={`mailto:${SITE.email}`} className="text-blue hover:underline">
+                  {SITE.email}
+                </a>
+              </p>
+              <p>
+                <a href={`tel:${SITE.phone.replace(/[^\d+]/g, "")}`} className="text-blue hover:underline">
+                  {SITE.phone}
+                </a>
+              </p>
+            </div>
           </div>
-        </AnimatedSection>
+
+          {/* Right — form */}
+          <AnimatedSection>
+            <div>
+              {state === "success" ? (
+                <div className="rounded-xl bg-green-50 p-8 text-center border border-green-200">
+                  <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-green-800 mb-2">
+                    Thank You!
+                  </h3>
+                  <p className="text-green-700">
+                    You&apos;re signed up to receive campaign updates. Together, we&apos;ll
+                    make a difference for San Clemente.
+                  </p>
+                  <button
+                    onClick={() => setState("idle")}
+                    className="mt-4 text-sm text-green-600 underline hover:text-green-800 cursor-pointer"
+                  >
+                    Sign up another supporter
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="firstName" className="block text-xs text-gray-500 mb-1 lowercase">
+                        first name *
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        required
+                        className={inputClass}
+                        placeholder="First name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="lastName" className="block text-xs text-gray-500 mb-1 lowercase">
+                        last name *
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        required
+                        className={inputClass}
+                        placeholder="Last name"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-xs text-gray-500 mb-1 lowercase">
+                      email address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className={inputClass}
+                      placeholder="you@example.com"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="phone" className="block text-xs text-gray-500 mb-1 lowercase">
+                        cell phone
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className={inputClass}
+                        placeholder="(555) 555-5555"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="zipCode" className="block text-xs text-gray-500 mb-1 lowercase">
+                        zip code
+                      </label>
+                      <input
+                        type="text"
+                        id="zipCode"
+                        name="zipCode"
+                        pattern="[0-9]{5}"
+                        className={inputClass}
+                        placeholder="92672"
+                      />
+                    </div>
+                  </div>
+
+                  {/* SMS opt-in */}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="smsOptIn"
+                      name="smsOptIn"
+                      className="mt-1 h-4 w-4 rounded border-gray-300 text-blue focus:ring-blue"
+                    />
+                    <label htmlFor="smsOptIn" className="text-xs text-gray-500 leading-relaxed">
+                      I agree to receive text messages from Steve Camp for City Council. Message and data rates may apply. Reply STOP to opt out at any time.
+                    </label>
+                  </div>
+
+                  {state === "error" && (
+                    <div className="flex items-center gap-2 text-red-600 text-sm">
+                      <AlertCircle className="h-4 w-4" />
+                      <span>Something went wrong. Please try again.</span>
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    disabled={state === "submitting"}
+                  >
+                    {state === "submitting" ? (
+                      "Sending..."
+                    ) : (
+                      <span className="flex items-center justify-center gap-2">
+                        <Send className="h-4 w-4" />
+                        Join the Campaign
+                      </span>
+                    )}
+                  </Button>
+                </form>
+              )}
+            </div>
+          </AnimatedSection>
+        </div>
       </Container>
     </section>
   );
