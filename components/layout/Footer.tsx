@@ -19,33 +19,31 @@ function MarqueeText() {
 
 export function Footer() {
   return (
-    <footer className="bg-offwhite">
+    <footer className="bg-gradient-to-b from-white to-offwhite">
       {/* Zone 1 — Marquee */}
-      <div className="overflow-hidden py-6" aria-hidden="true">
-        <div className="animate-marquee flex w-max items-center gap-[0.6em] font-heading font-extrabold leading-none [font-size:clamp(4rem,12vw,10rem)]">
+      <div className="overflow-hidden py-4" aria-hidden="true">
+        <div className="animate-marquee flex w-max items-center gap-[0.3em] font-heading font-extrabold leading-[0.85] tracking-tight [font-size:clamp(6rem,18vw,14rem)]">
           <MarqueeText />
           <MarqueeText />
         </div>
       </div>
 
       {/* Zone 2 — Tagline + CTA */}
-      <div className="border-t border-blue/10">
-        <Container>
-          <div className="flex flex-col items-center gap-8 py-12 sm:flex-row sm:justify-between">
-            <p className="font-serif text-2xl text-blue-dark sm:text-3xl">
-              Your{" "}
-              <span className="font-bold text-red">voice</span> for{" "}
-              <span className="font-bold">San Clemente</span>
-            </p>
-            <a
-              href="#donate"
-              className="inline-block rounded-full bg-blue-dark px-12 py-5 text-lg font-bold tracking-wide text-white uppercase transition-colors hover:bg-blue-light"
-            >
-              Donate
-            </a>
-          </div>
-        </Container>
-      </div>
+      <Container>
+        <div className="flex flex-col items-start gap-8 pb-16 pt-4 md:flex-row md:items-end md:justify-between">
+          <p className="font-heading text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-blue/30">
+            <span className="font-extrabold text-blue-dark">Fight</span> for
+            <br />
+            <span className="font-extrabold text-blue-dark">San Clemente</span>
+          </p>
+          <a
+            href="#donate"
+            className="inline-block rounded-full bg-blue-dark px-16 py-7 text-2xl font-bold text-white transition-colors hover:bg-blue-light md:text-3xl"
+          >
+            Donate
+          </a>
+        </div>
+      </Container>
 
       {/* Zone 3 — Bottom bar */}
       <div className="border-t border-blue/10">
