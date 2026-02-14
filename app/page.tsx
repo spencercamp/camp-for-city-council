@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -16,6 +17,14 @@ export default function Home() {
         <Hero />
         <About />
         <Issues />
+        <Image
+          src="/images/san-clemente.png"
+          alt="A beautiful day in sunny San Clemente with palm trees, the pier, and ocean waves"
+          width={2048}
+          height={1463}
+          className="w-full h-auto block"
+          priority={false}
+        />
         <Qualifications />
         <Endorsements />
         <Donate />
