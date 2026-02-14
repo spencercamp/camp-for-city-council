@@ -50,37 +50,37 @@ export const ISSUES = {
     {
       title: "Safe Neighborhoods and Beaches for All",
       description:
-        "Strengthening public safety resources and supporting our police, fire, and lifeguard teams to keep our neighborhoods and beaches safe for families.",
+        "I will strengthen public safety resources and stand behind our police, fire, and lifeguard teams so our neighborhoods and beaches remain safe places for families to live, work, and play.",
     },
     {
       title: "Protecting Our Small-Town Coastal Character",
       description:
-        "Preserving the charm and identity of San Clemente by ensuring development respects our community's scale, architecture, and coastal village feel.",
+        "I will work to preserve San Clemente's small-town charm by ensuring that any new development respects our community's scale, architecture, and coastal village feel.",
     },
     {
       title: "Compassionate, Accountable Homelessness Solutions",
       description:
-        "Addressing homelessness with dignity and accountability, connecting people with services while maintaining clean, safe public spaces.",
+        "I will address homelessness with both compassion and accountability, connecting people with services and support while keeping our public spaces clean, safe, and accessible for everyone.",
     },
     {
       title: "Responsible, Transparent Stewardship of Taxpayer Dollars",
       description:
-        "Demanding fiscal responsibility at City Hall, prioritizing essential services, and ensuring taxpayer money is spent wisely and transparently.",
+        "I will insist on fiscal responsibility at City Hall, prioritize essential services, and make sure every taxpayer dollar is spent wisely, openly, and with clear accountability.",
     },
     {
       title: "Local Control Over Our Community's Future",
       description:
-        "Fighting to keep decision-making power local and pushing back against unfunded state mandates that threaten our community's self-determination.",
+        "I will fight to keep decision-making power in San Clemente's hands and push back against unfunded state mandates that undermine our community's ability to shape its own future.",
     },
     {
       title: "Safeguarding Our Coastline for the Next Generation",
       description:
-        "Protecting our beaches, trails, and open spaces through responsible environmental stewardship and sustainable coastal management.",
+        "I will protect our beaches, trails, and open spaces through responsible environmental stewardship and practical, sustainable coastal management so future generations can enjoy the San Clemente we love.",
     },
     {
       title: "Supporting Strong Families and Community Values",
       description:
-        "Championing family-friendly policies, supporting local schools and youth programs, and fostering a connected, vibrant community for all ages.",
+        "I will champion family-friendly policies, support our local schools and youth programs, and foster a connected, vibrant community that reflects the values we share in San Clemente.",
     },
   ],
 } as const;
