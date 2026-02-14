@@ -29,12 +29,13 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-blue-dark/95 backdrop-blur-sm shadow-lg"
-          : "bg-transparent"
+        "md:top-4 md:left-6 md:right-6",
+        "bg-blue-dark/95 backdrop-blur-sm",
+        "md:rounded-full md:max-w-5xl md:mx-auto",
+        scrolled ? "shadow-lg" : ""
       )}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10 flex items-center justify-between py-4">
+      <div className="mx-auto w-full px-6 lg:px-8 flex items-center justify-between py-3">
         <a href="#" className="flex items-center gap-2">
           <Image
             src="/images/logo-sticker.png"
