@@ -32,7 +32,7 @@ export function Donate() {
     <section id="donate" className="py-24 lg:py-36 bg-offwhite">
       <Container>
         <AnimatedSection>
-          <div className="bg-white rounded-2xl p-8 md:p-12 max-w-2xl shadow-sm border border-gray-100">
+          <div className="bg-white rounded-2xl p-8 md:p-12 max-w-2xl mx-auto shadow-sm border border-gray-100">
             <SectionHeading subtitle={DONATE.subheading} className="mb-10 lg:mb-12">
               {DONATE.heading}
             </SectionHeading>
