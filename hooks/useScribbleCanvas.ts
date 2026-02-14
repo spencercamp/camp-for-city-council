@@ -26,7 +26,7 @@ export function useScribbleCanvas(
   options: ScribbleOptions = {}
 ) {
   const {
-    strokeColor = "#FDE68A",
+    strokeColor = "#FCA5A5",
     strokeWidth = 48,
     globalAlpha = 0.6,
     fadeDelay = 2000,
