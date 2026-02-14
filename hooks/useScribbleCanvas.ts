@@ -1,0 +1,212 @@
+"use client";
+
+import { useRef, useEffect, type RefObject } from "react";
+
+interface ScribbleOptions {
+  strokeColor?: string;
+  strokeWidth?: number;
+  globalAlpha?: number;
+}
+
+interface Point {
+  x: number;
+  y: number;
+}
+
+interface Stroke {
+  points: Point[]; // normalized 0-1 coordinates
+}
+
+export function useScribbleCanvas(
+  containerRef: RefObject<HTMLElement | null>,
+  options: ScribbleOptions = {}
+) {
+  const {
+    strokeColor = "#FDE68A",
+    strokeWidth = 48,
+    globalAlpha = 0.6,
+  } = options;
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // All mutable drawing state in refs to avoid re-renders
+  const stateRef = useRef({
+    isDrawing: false,
+    strokes: [] as Stroke[],
+    currentStroke: null as Stroke | null,
+    pendingPoints: [] as { x: number; y: number }[],
+    rafId: 0,
+    dpr: 1,
+    enabled: true,
+  });
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+
+    const state = stateRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // --- Canvas sizing ---
+    function resize() {
+      if (!canvas || !ctx || !container) return;
+      const rect = container.getBoundingClientRect();
+      state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = rect.width * state.dpr;
+      canvas.height = rect.height * state.dpr;
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      redraw();
+    }
+
+    // --- Draw all stored strokes ---
+    function redraw() {
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const w = canvas.width;
+      const h = canvas.height;
+
+      for (const stroke of state.strokes) {
+        drawStroke(ctx, stroke.points, w, h);
+      }
+      if (state.currentStroke && state.currentStroke.points.length > 0) {
+        drawStroke(ctx, state.currentStroke.points, w, h);
+      }
+    }
+
+    function drawStroke(
+      c: CanvasRenderingContext2D,
+      points: Point[],
+      w: number,
+      h: number
+    ) {
+      if (points.length < 2) return;
+
+      c.save();
+      c.globalAlpha = globalAlpha;
+      c.strokeStyle = strokeColor;
+      c.lineWidth = strokeWidth * state.dpr;
+      c.lineCap = "round";
+      c.lineJoin = "round";
+
+      c.beginPath();
+
+      // Convert first point from normalized to canvas coords
+      const first = { x: points[0].x * w, y: points[0].y * h };
+      c.moveTo(first.x, first.y);
+
+      // Draw smooth quadratic Bezier curves through midpoints
+      for (let i = 1; i < points.length - 1; i++) {
+        const curr = { x: points[i].x * w, y: points[i].y * h };
+        const next = { x: points[i + 1].x * w, y: points[i + 1].y * h };
+        const midX = (curr.x + next.x) / 2;
+        const midY = (curr.y + next.y) / 2;
+        c.quadraticCurveTo(curr.x, curr.y, midX, midY);
+      }
+
+      // Draw to last point
+      const last = points[points.length - 1];
+      c.lineTo(last.x * w, last.y * h);
+      c.stroke();
+      c.restore();
+    }
+
+    // --- Batched drawing with rAF ---
+    function flushPoints() {
+      if (!canvas || !ctx) return;
+      state.rafId = 0;
+
+      if (state.pendingPoints.length === 0) return;
+      const rect = container!.getBoundingClientRect();
+
+      for (const pt of state.pendingPoints) {
+        const nx = (pt.x - rect.left) / rect.width;
+        const ny = (pt.y - rect.top) / rect.height;
+
+        if (!state.currentStroke) {
+          state.currentStroke = { points: [{ x: nx, y: ny }] };
+        } else {
+          state.currentStroke.points.push({ x: nx, y: ny });
+        }
+      }
+
+      state.pendingPoints = [];
+      redraw();
+    }
+
+    // --- Pointer events on the container ---
+    function onPointerMove(e: PointerEvent) {
+      if (!state.enabled) return;
+
+      if (!state.isDrawing) {
+        // Start a new stroke on first move inside
+        state.isDrawing = true;
+        state.currentStroke = null;
+      }
+
+      state.pendingPoints.push({ x: e.clientX, y: e.clientY });
+
+      if (!state.rafId) {
+        state.rafId = requestAnimationFrame(flushPoints);
+      }
+    }
+
+    function onPointerLeave() {
+      if (!state.enabled) return;
+      state.isDrawing = false;
+
+      // Flush remaining points
+      if (state.rafId) {
+        cancelAnimationFrame(state.rafId);
+        state.rafId = 0;
+      }
+      flushPoints();
+
+      // Commit current stroke to history
+      if (state.currentStroke && state.currentStroke.points.length > 1) {
+        state.strokes.push(state.currentStroke);
+      }
+      state.currentStroke = null;
+    }
+
+    // --- Desktop-only media query ---
+    const mql = window.matchMedia("(min-width: 1024px)");
+
+    function handleMediaChange(e: MediaQueryList | MediaQueryListEvent) {
+      state.enabled = e.matches;
+      if (!state.enabled) {
+        state.strokes = [];
+        state.currentStroke = null;
+        state.pendingPoints = [];
+        state.isDrawing = false;
+        if (canvas && ctx) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+    }
+
+    handleMediaChange(mql);
+    mql.addEventListener("change", handleMediaChange);
+
+    // --- ResizeObserver ---
+    const ro = new ResizeObserver(resize);
+    ro.observe(container);
+    resize();
+
+    // --- Attach events ---
+    container.addEventListener("pointermove", onPointerMove);
+    container.addEventListener("pointerleave", onPointerLeave);
+
+    return () => {
+      container.removeEventListener("pointermove", onPointerMove);
+      container.removeEventListener("pointerleave", onPointerLeave);
+      mql.removeEventListener("change", handleMediaChange);
+      ro.disconnect();
+      if (state.rafId) cancelAnimationFrame(state.rafId);
+    };
+  }, [containerRef, strokeColor, strokeWidth, globalAlpha]);
+
+  return canvasRef;
+}

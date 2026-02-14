@@ -1,15 +1,23 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/Button";
 import { HERO } from "@/lib/constants";
+import { useScribbleCanvas } from "@/hooks/useScribbleCanvas";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const canvasRef = useScribbleCanvas(sectionRef);
+
   return (
-    <section className="bg-blue-dark min-h-screen flex flex-col justify-center overflow-hidden relative">
+    <section ref={sectionRef} className="bg-blue-dark min-h-screen flex flex-col justify-center overflow-hidden relative">
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-dark via-blue-dark to-blue/40" />
+
+      {/* Scribble canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-24 md:py-32">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
