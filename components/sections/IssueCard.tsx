@@ -38,9 +38,9 @@ export function IssueCard({
 
   return (
     <AnimatedSection delay={index * 0.1}>
-      <div className="group h-full rounded-xl bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red/10 text-red group-hover:bg-red group-hover:text-white transition-colors duration-300">
-          <Icon className="h-6 w-6" />
+      <div className="group h-full rounded-2xl bg-white p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-b-4 border-red">
+        <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-navy/10 text-navy group-hover:bg-navy group-hover:text-white transition-colors duration-300">
+          <Icon className="h-7 w-7" />
         </div>
         <h3 className="mb-2 text-lg font-bold text-navy">{title}</h3>
         <p className="text-gray-600 leading-relaxed text-sm">{description}</p>

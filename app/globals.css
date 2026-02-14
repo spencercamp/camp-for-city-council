@@ -11,12 +11,14 @@
   --color-amber-light: #FCD34D;
   --color-cream: #FFF8F0;
   --color-cream-dark: #FFF0E0;
+  --color-cream-light: #FFFCF7;
   --font-heading: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {

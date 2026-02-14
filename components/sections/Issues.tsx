@@ -7,7 +7,7 @@ import { ISSUES } from "@/lib/constants";
 
 export function Issues() {
   return (
-    <section id="issues" className="py-20 lg:py-28 bg-cream">
+    <section id="issues" className="py-16 lg:py-24 bg-gradient-to-b from-cream to-cream-dark">
       <Container>
         <SectionHeading subtitle={ISSUES.subheading}>
           {ISSUES.heading}

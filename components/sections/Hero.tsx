@@ -20,14 +20,14 @@ export function Hero() {
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/90 via-navy/40 to-navy-dark/95" />
 
       <Container className="relative z-10 text-center py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center gap-8"
+          className="flex flex-col items-center gap-6"
         >
           {/* Campaign logo */}
           <Image
@@ -39,11 +39,29 @@ export function Hero() {
             priority
           />
 
+          {/* Bold headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight uppercase leading-none"
+          >
+            {HERO.headline}
+          </motion.h1>
+
+          {/* Accent line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-24 h-1 bg-red rounded-full"
+          />
+
           {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-2xl text-lg sm:text-xl md:text-2xl text-white/90 font-light leading-relaxed"
           >
             {HERO.tagline}
@@ -53,13 +71,13 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-4 mt-4"
           >
             <Button href="#donate" variant="primary" size="lg">
               {HERO.cta1}
             </Button>
-            <Button href="#contact" variant="outline" size="lg">
+            <Button href="#get-involved" variant="outline" size="lg">
               {HERO.cta2}
             </Button>
           </motion.div>

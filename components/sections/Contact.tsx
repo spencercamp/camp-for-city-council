@@ -39,14 +39,14 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-white">
+    <section id="contact" className="py-16 md:py-24 lg:py-36 bg-gradient-to-b from-cream to-white">
       <Container>
         <AnimatedSection>
           <SectionHeading subtitle={CONTACT.subheading}>
             {CONTACT.heading}
           </SectionHeading>
 
-          <div className="mx-auto max-w-xl">
+          <div className="mx-auto max-w-2xl">
             {state === "success" ? (
               <div className="rounded-xl bg-green-50 p-8 text-center border border-green-200">
                 <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
@@ -59,13 +59,13 @@ export function Contact() {
                 </p>
                 <button
                   onClick={() => setState("idle")}
-                  className="mt-4 text-sm text-green-600 underline hover:text-green-800"
+                  className="mt-4 text-sm text-green-600 underline hover:text-green-800 cursor-pointer"
                 >
                   Sign up another supporter
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5 bg-white rounded-3xl p-8 shadow-lg">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
@@ -76,7 +76,7 @@ export function Contact() {
                       id="firstName"
                       name="firstName"
                       required
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
                       placeholder="First name"
                     />
                   </div>
@@ -89,7 +89,7 @@ export function Contact() {
                       id="lastName"
                       name="lastName"
                       required
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
                       placeholder="Last name"
                     />
                   </div>
@@ -118,7 +118,7 @@ export function Contact() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
                       placeholder="(555) 555-5555"
                     />
                   </div>
@@ -131,10 +131,23 @@ export function Contact() {
                       id="zipCode"
                       name="zipCode"
                       pattern="[0-9]{5}"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
+                      className="w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none transition-colors"
                       placeholder="92672"
                     />
                   </div>
+                </div>
+
+                {/* SMS opt-in */}
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="smsOptIn"
+                    name="smsOptIn"
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-navy focus:ring-navy"
+                  />
+                  <label htmlFor="smsOptIn" className="text-xs text-gray-500 leading-relaxed">
+                    I agree to receive text messages from Steve Camp for City Council. Message and data rates may apply. Reply STOP to opt out at any time.
+                  </label>
                 </div>
 
                 {state === "error" && (

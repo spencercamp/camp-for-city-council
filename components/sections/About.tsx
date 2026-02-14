@@ -9,13 +9,27 @@ import { ABOUT } from "@/lib/constants";
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white">
+    <section id="about" className="py-16 md:py-24 lg:py-36 bg-gradient-to-b from-white via-white to-cream/50">
       <Container>
         <SectionHeading>{ABOUT.heading}</SectionHeading>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Text */}
-          <AnimatedSection>
+        {/* Full-width hero photo */}
+        <AnimatedSection>
+          <div className="mb-12 lg:mb-16">
+            <Image
+              src="/images/couple.jpg"
+              alt="Steve Camp with his wife"
+              width={1200}
+              height={500}
+              className="rounded-2xl shadow-lg w-full h-[400px] md:h-[500px] object-cover"
+            />
+          </div>
+        </AnimatedSection>
+
+        {/* Asymmetric grid: text 3/5, photos 2/5 */}
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+          {/* Text — 3 columns */}
+          <AnimatedSection className="lg:col-span-3">
             <div className="space-y-5">
               {ABOUT.bio.map((paragraph, i) => (
                 <p key={i} className="text-gray-700 leading-relaxed text-lg">
@@ -35,31 +49,22 @@ export function About() {
             </div>
           </AnimatedSection>
 
-          {/* Photo grid */}
-          <AnimatedSection delay={0.2}>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2">
-                <Image
-                  src="/images/couple.jpg"
-                  alt="Steve Camp with his wife"
-                  width={600}
-                  height={400}
-                  className="rounded-xl shadow-lg w-full h-64 sm:h-80 object-cover"
-                />
-              </div>
+          {/* Photos — 2 columns */}
+          <AnimatedSection delay={0.2} className="lg:col-span-2">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
               <Image
                 src="/images/family-1.jpg"
                 alt="Steve Camp with family"
-                width={300}
-                height={300}
-                className="rounded-xl shadow-lg w-full h-40 sm:h-48 object-cover"
+                width={400}
+                height={400}
+                className="rounded-xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover"
               />
               <Image
                 src="/images/surfing.jpg"
                 alt="Steve Camp surfing"
-                width={300}
-                height={300}
-                className="rounded-xl shadow-lg w-full h-40 sm:h-48 object-cover"
+                width={400}
+                height={400}
+                className="rounded-xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover"
               />
             </div>
           </AnimatedSection>

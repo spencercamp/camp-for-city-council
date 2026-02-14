@@ -9,17 +9,22 @@ export const SITE = {
   formspreeEndpoint: "https://formspree.io/f/stevec@elementsarch.com",
   disclaimer:
     "Paid for by Steve Camp for San Clemente City Council 2026, ID Number 1487361",
+  socialMedia: {
+    facebook: "https://www.facebook.com/profile.php?id=61577622498498",
+    instagram: "https://www.instagram.com/campforcitycouncil/",
+  },
 } as const;
 
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Issues", href: "#issues" },
   { label: "Endorsements", href: "#endorsements" },
+  { label: "Get Involved", href: "#get-involved" },
   { label: "Donate", href: "#donate" },
-  { label: "Contact", href: "#contact" },
 ] as const;
 
 export const HERO = {
+  headline: "Fighting for San Clemente",
   tagline: "Committed to Public Safety, Fiscal Responsibility, and Quality of Life",
   cta1: "Donate Now",
   cta2: "Get Involved",
@@ -95,14 +100,52 @@ export const ENDORSEMENTS = {
     {
       name: "Steve Knoblock",
       title: "Mayor Pro Tem, City of San Clemente",
+      quote: "Steve Camp has the experience and integrity San Clemente needs on our City Council.",
     },
     {
       name: "Victor Cabral",
       title: "Former Mayor & Current City Council Member",
+      quote: "Steve's years of service on the Planning Commission make him uniquely qualified to lead.",
     },
     {
       name: "Cameron Cosgrove",
       title: "Chairman, San Clemente Planning Commission",
+      quote: "I've worked alongside Steve for years. He's thoughtful, principled, and always puts residents first.",
+    },
+  ],
+} as const;
+
+export const GET_INVOLVED = {
+  heading: "Join the Movement",
+  subheading: "There are many ways to support Steve's campaign for City Council.",
+  items: [
+    {
+      icon: "HandHeart" as const,
+      title: "Volunteer",
+      description: "Knock on doors, make phone calls, or help at events. Every hour makes a difference.",
+      cta: "Sign Up to Volunteer",
+      href: "#contact",
+    },
+    {
+      icon: "MessageSquare" as const,
+      title: "Endorse Steve",
+      description: "Add your name to the growing list of San Clemente residents supporting Steve.",
+      cta: "Add Your Endorsement",
+      href: "#contact",
+    },
+    {
+      icon: "Share2" as const,
+      title: "Spread the Word",
+      description: "Share Steve's message with your neighbors, friends, and family in San Clemente.",
+      cta: "Follow on Social Media",
+      href: "https://www.facebook.com/profile.php?id=61577622498498",
+    },
+    {
+      icon: "BadgeDollarSign" as const,
+      title: "Donate",
+      description: "Your financial support helps Steve reach every voter in District One.",
+      cta: "Contribute Now",
+      href: "#donate",
     },
   ],
 } as const;
@@ -114,6 +157,19 @@ export const DONATE = {
   zellePhone: "(949) 637-2833",
   zelleNote: "Contributions up to $5,900 per person are accepted under California campaign finance law.",
   cta: "Contribute via Zelle",
+  amounts: [25, 50, 100, 250, 500, 1000],
+} as const;
+
+export const CAMPAIGN_STRIP = {
+  heading: "San Clemente Deserves Better.",
+  cta: "Join the Movement",
+  ctaHref: "#get-involved",
+} as const;
+
+export const ACTION_STRIP = {
+  heading: "Ready to Make a Difference?",
+  cta: "Donate Now",
+  ctaHref: "#donate",
 } as const;
 
 export const CONTACT = {
