@@ -18,7 +18,7 @@ export function About() {
             <AnimatedSection>
               <div className="space-y-5">
                 {ABOUT.bio.map((paragraph, i) => (
-                  <p key={i} className="text-lg text-gray-600 leading-relaxed">
+                  <p key={i} className="font-serif text-lg sm:text-xl text-gray-600 leading-relaxed">
                     {paragraph}
                   </p>
                 ))}

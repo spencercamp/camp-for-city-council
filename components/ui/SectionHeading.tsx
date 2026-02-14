@@ -26,7 +26,7 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-6 max-w-2xl text-lg",
+            "mt-6 max-w-2xl font-serif text-xl sm:text-2xl leading-relaxed",
             light ? "text-white/60" : "text-gray-600",
             centered && "mx-auto"
           )}

@@ -29,7 +29,7 @@ export function Endorsements() {
                 <h3 className="text-xl lg:text-2xl font-bold text-blue-dark mb-2">
                   {endorser.name}
                 </h3>
-                <p className="text-gray-600 font-medium text-sm leading-snug">
+                <p className="font-serif text-gray-600 font-medium text-sm leading-snug">
                   {endorser.title}
                 </p>
                 <p className="text-gray-400 text-xs mt-1">{endorser.context}</p>

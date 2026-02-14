@@ -21,7 +21,7 @@ export function Issues() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-lg font-bold text-blue mb-3">{issue.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{issue.description}</p>
+                <p className="font-serif text-gray-600 leading-relaxed text-sm sm:text-base">{issue.description}</p>
               </div>
             </AnimatedSection>
           ))}

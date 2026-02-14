@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter } from "next/font/google";
+import { Montserrat, Inter, Lora } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -11,6 +11,12 @@ const montserrat = Montserrat({
 
 const inter = Inter({
   variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const lora = Lora({
+  variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
 });
@@ -72,7 +78,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${inter.variable} ${lora.variable}`}>
       <head>
         <script
           type="application/ld+json"

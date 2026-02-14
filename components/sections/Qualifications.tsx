@@ -38,7 +38,7 @@ export function Qualifications() {
                 <p className="mt-4 text-amber font-semibold text-base uppercase tracking-wider">
                   {item.label}
                 </p>
-                <p className="mt-2 text-white/60 text-sm lg:text-base leading-relaxed">
+                <p className="mt-2 font-serif text-white/60 text-sm lg:text-base leading-relaxed">
                   {item.description}
                 </p>
               </div>

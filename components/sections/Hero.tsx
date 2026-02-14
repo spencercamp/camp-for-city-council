@@ -66,7 +66,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-6 text-lg sm:text-xl text-white/70 tracking-wide max-w-md"
+              className="mt-6 font-serif text-xl sm:text-2xl text-white/70 leading-relaxed max-w-md"
             >
               {HERO.subtitle}
             </motion.p>
