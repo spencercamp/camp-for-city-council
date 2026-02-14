@@ -8,10 +8,17 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+      setHidden(currentScrollY > 50 && currentScrollY > lastScrollY);
+      lastScrollY = currentScrollY;
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,7 +39,9 @@ export function Navbar() {
         "md:top-4 md:left-6 md:right-6",
         "bg-blue-dark/95 backdrop-blur-sm",
         "md:rounded-full md:max-w-5xl md:mx-auto",
-        scrolled ? "shadow-lg" : ""
+        "border border-white/20",
+        scrolled ? "shadow-lg" : "",
+        hidden && !mobileOpen ? "-translate-y-full md:-translate-y-[calc(100%+1rem)]" : "translate-y-0"
       )}
     >
       <div className="mx-auto w-full px-6 lg:px-8 flex items-center justify-between py-3">
