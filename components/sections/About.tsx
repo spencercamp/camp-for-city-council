@@ -31,11 +31,11 @@ export function About() {
             <AnimatedSection delay={0.2}>
               <div className="relative">
                 <Image
-                  src="/images/couple.jpg"
-                  alt="Steve Camp with his wife"
+                  src="/images/headshot.jpg"
+                  alt="Steve Camp"
                   width={600}
                   height={750}
-                  className="w-full aspect-[4/5] object-cover rounded-lg"
+                  className="w-full aspect-[4/5] object-cover object-top rounded-lg"
                 />
               </div>
             </AnimatedSection>
