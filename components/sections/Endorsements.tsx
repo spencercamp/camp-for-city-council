@@ -17,7 +17,7 @@ export function Endorsements() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {ENDORSEMENTS.items.map((endorser, i) => (
             <AnimatedSection key={endorser.name} delay={i * 0.1}>
-              <div className="group relative bg-white rounded-2xl p-8 lg:p-10 text-center shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
+              <div className="group relative bg-white rounded-2xl p-8 lg:p-10 text-center shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full">
                 {/* Red top accent — always visible */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-red" />
 

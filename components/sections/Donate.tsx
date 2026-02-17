@@ -16,10 +16,16 @@ function ZelleLogo({ className }: { className?: string }) {
       aria-label="Zelle"
     >
       <circle cx="32" cy="32" r="32" fill="#6D1ED4" />
-      <path
-        d="M20 18h24v6H27.5L44 42v6H20v-6h16.5L20 24V18z"
-        fill="#fff"
-      />
+      {/* Vertical bar top */}
+      <rect x="28" y="10" width="8" height="8" fill="#fff" />
+      {/* Top horizontal bar */}
+      <rect x="17" y="18" width="24" height="7" fill="#fff" />
+      {/* Diagonal */}
+      <polygon points="41,18 24,46 17,46 34,18" fill="#fff" />
+      {/* Bottom horizontal bar */}
+      <rect x="23" y="39" width="24" height="7" fill="#fff" />
+      {/* Vertical bar bottom */}
+      <rect x="28" y="46" width="8" height="8" fill="#fff" />
     </svg>
   );
 }
