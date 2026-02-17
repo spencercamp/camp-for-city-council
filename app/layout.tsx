@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter, Lora } from "next/font/google";
+import { Montserrat, Lora } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -78,8 +72,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable} ${lora.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${lora.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
