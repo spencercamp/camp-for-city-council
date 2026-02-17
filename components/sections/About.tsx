@@ -35,8 +35,8 @@ export function About() {
             <AnimatedSection delay={0.2}>
               <div className="relative">
                 <Image
-                  src="/images/headshot.jpg"
-                  alt="Steve Camp"
+                  src="/images/couple.jpg"
+                  alt="Steve and his wife"
                   width={600}
                   height={750}
                   className="w-full aspect-[4/5] object-cover object-top rounded-lg"

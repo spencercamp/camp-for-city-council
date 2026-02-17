@@ -106,8 +106,8 @@ export function Hero() {
           >
             <div className="relative">
               <Image
-                src="/images/couple.jpg"
-                alt="Steve and his wife"
+                src="/images/headshot.jpg"
+                alt="Steve Camp"
                 width={700}
                 height={875}
                 className="w-full max-w-lg mx-auto aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
@@ -126,8 +126,8 @@ export function Hero() {
             className="lg:hidden"
           >
             <Image
-              src="/images/couple.jpg"
-              alt="Steve and his wife"
+              src="/images/headshot.jpg"
+              alt="Steve Camp"
               width={600}
               height={750}
               className="w-full max-w-sm aspect-[4/5] object-cover object-top rounded-lg shadow-2xl"
