@@ -128,16 +128,19 @@ export const ENDORSEMENTS = {
       name: "Steve Knoblock",
       title: "Mayor Pro Tem",
       context: "City of San Clemente",
+      image: "/images/endorsers/knoblock.jpg",
     },
     {
       name: "Victor Cabral",
       title: "Former Mayor & Current City Council Member",
       context: "City of San Clemente",
+      image: "/images/endorsers/cabral.jpg",
     },
     {
       name: "Cameron Cosgrove",
       title: "Chairman, San Clemente Planning Commission",
       context: "City of San Clemente",
+      image: "/images/endorsers/cosgrove.jpg",
     },
   ],
 } as const;
