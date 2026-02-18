@@ -22,7 +22,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="mb-6"
             >
-              <span className="inline-block text-xs sm:text-sm tracking-[0.2em] text-white/50 uppercase border border-white/15 rounded-full px-4 py-1.5">
+              <span className="inline-block text-sm sm:text-base font-semibold tracking-[0.2em] text-white uppercase border-2 border-red/60 bg-red/15 rounded-full px-5 py-2 shadow-[0_0_15px_rgba(197,48,48,0.25)]">
                 {HERO.badge}
               </span>
             </motion.div>
@@ -58,7 +58,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-6 font-serif text-xl sm:text-2xl text-white/70 leading-relaxed max-w-md"
+              className="mt-6 font-sans text-2xl sm:text-3xl text-white/70 leading-relaxed max-w-md"
             >
               {HERO.subtitle}
             </motion.p>
