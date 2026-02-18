@@ -94,6 +94,11 @@ export function Donate() {
           <p className="text-base text-gray-600 mt-6">
             You can donate up to <span className="font-bold text-blue">$5,900</span> per person under California campaign finance law.
           </p>
+
+          {/* Check alternative */}
+          <p className="text-sm text-gray-500 mt-4">
+            Prefer to mail a check? <a href="#contact" className="text-blue underline underline-offset-2 hover:text-blue/80 transition-colors">Contact us</a> to request a mailing address.
+          </p>
         </div>
       </AnimatedSection>
     </section>
