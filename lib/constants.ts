@@ -8,7 +8,7 @@ export const SITE = {
   phone: "(949) 637-2833",
   formspreeEndpoint: "https://formspree.io/f/stevec@elementsarch.com",
   disclaimer:
-    "Paid for by Steve Camp for San Clemente City Council 2026, ID Number 1487361",
+    "Paid for by Camp for San Clemente City Council 2026, ID Number 1487361",
   socialMedia: {
     facebook: "https://www.facebook.com/profile.php?id=61577622498498",
     instagram: "https://www.instagram.com/campforcitycouncil/",
@@ -37,7 +37,7 @@ export const ABOUT = {
   stats: [
     { number: "4.5 years", label: "Planning Commission" },
     { number: "4.5 years", label: "Design Review" },
-    { number: "36 years", label: "Architecture" },
+    { number: "36 years", label: "Architecture business owner" },
     { number: "30+ years", label: "San Clemente Resident" },
   ],
 } as const;
