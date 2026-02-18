@@ -47,15 +47,12 @@ export function Navbar() {
       <div className="mx-auto w-full px-6 lg:px-8 flex items-center justify-between py-3">
         <a href="#" className="flex items-center gap-2">
           <Image
-            src="/images/logo-sticker.png"
+            src="/images/logo-campaign.png"
             alt="Steve Camp for City Council"
-            width={32}
-            height={32}
-            className="h-8 w-auto rounded"
+            width={48}
+            height={48}
+            className="h-12 w-auto"
           />
-          <span className="text-white text-sm tracking-wide">
-            Steve Camp
-          </span>
         </a>
 
         {/* Desktop nav */}
