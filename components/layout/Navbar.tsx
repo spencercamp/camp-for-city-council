@@ -53,6 +53,9 @@ export function Navbar() {
             height={48}
             className="h-12 w-auto"
           />
+          <span className="text-white text-sm font-semibold tracking-wide">
+            Steve Camp
+          </span>
         </a>
 
         {/* Desktop nav */}
