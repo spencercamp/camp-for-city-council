@@ -32,23 +32,16 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-[clamp(3.5rem,10vw,9rem)] font-extrabold leading-[0.85] tracking-[-0.04em] text-white uppercase"
+              className="text-[clamp(2rem,6vw,5rem)] font-extrabold leading-[0.85] tracking-[-0.04em] text-white uppercase"
             >
               {HERO.name1}
             </motion.h1>
-
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="h-1.5 bg-red w-36 sm:w-44 my-3 origin-left"
-            />
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-              className="text-[clamp(3.5rem,10vw,9rem)] font-extrabold leading-[0.85] tracking-[-0.04em] text-white uppercase"
+              className="text-[clamp(4.5rem,13vw,12rem)] font-extrabold leading-[0.85] tracking-[-0.04em] text-white uppercase"
             >
               {HERO.name2}
             </motion.h1>
