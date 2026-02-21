@@ -6,7 +6,7 @@ export const SITE = {
   url: "https://campforcitycouncil.com",
   email: "stevec@elementsarch.com",
   phone: "(949) 637-2833",
-  formspreeEndpoint: "https://formspree.io/f/stevec@elementsarch.com",
+  formspreeEndpoint: "https://formspree.io/f/xgollgaq",
   disclaimer:
     "Paid for by Camp for San Clemente City Council 2026, ID Number 1487361",
   socialMedia: {
