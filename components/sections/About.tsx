@@ -65,27 +65,20 @@ export function About() {
 
         {/* Photo grid */}
         <AnimatedSection>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-16">
-            <Image
-              src="/images/family-1.jpg"
-              alt="Steve Camp with family"
-              width={500}
-              height={400}
-              className="w-full h-56 md:h-72 object-cover rounded-lg"
-            />
+          <div className="grid grid-cols-2 gap-4 mt-16">
             <Image
               src="/images/family-2.jpg"
               alt="Steve Camp with family"
-              width={500}
+              width={600}
               height={400}
-              className="w-full h-56 md:h-72 object-cover rounded-lg"
+              className="w-full h-72 md:h-96 object-cover rounded-lg"
             />
             <Image
               src="/images/surfing.jpg"
               alt="Steve Camp surfing"
-              width={500}
+              width={600}
               height={400}
-              className="w-full h-56 md:h-72 object-cover rounded-lg col-span-2 md:col-span-1"
+              className="w-full h-72 md:h-96 object-cover rounded-lg"
             />
           </div>
         </AnimatedSection>
