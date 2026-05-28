@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-blue: #1B3A5C;
-  --color-blue-dark: #0F2440;
-  --color-blue-light: #2A5080;
-  --color-red: #C53030;
-  --color-red-dark: #9B2C2C;
-  --color-red-light: #E53E3E;
-  --color-offwhite: #F7F8FA;
-  --color-slate: #F1F3F5;
+  --color-blue: #1D3557;
+  --color-blue-dark: #142844;
+  --color-blue-light: #457B9D;
+  --color-red: #E63946;
+  --color-red-dark: #C1121F;
+  --color-red-light: #F25C68;
+  --color-frost: #A8DADC;
+  --color-offwhite: #F1FAEE;
+  --color-slate: #E8F3F2;
   --font-heading: "Montserrat", system-ui, sans-serif;
   --font-sans: "Google Sans Flex", system-ui, sans-serif;
   --font-serif: "Lora", Georgia, serif;
@@ -32,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 mark {
-  background: linear-gradient(to top, rgba(197, 48, 48, 0.15) 50%, transparent 50%);
+  background: linear-gradient(to top, rgba(230, 57, 70, 0.15) 50%, transparent 50%);
   color: inherit;
   padding: 0.1em 0;
   box-decoration-break: clone;
@@ -40,7 +41,7 @@ mark {
 }
 
 ::selection {
-  background-color: #C53030;
+  background-color: #E63946;
   color: white;
 }
 

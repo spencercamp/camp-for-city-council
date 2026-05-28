@@ -22,7 +22,7 @@ export function Endorsements() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 55%, rgba(197,48,48,0.12) 0%, rgba(27,58,92,0.08) 50%, transparent 100%)",
+            "radial-gradient(ellipse 60% 50% at 50% 55%, rgba(230,57,70,0.12) 0%, rgba(29,53,87,0.08) 50%, transparent 100%)",
         }}
       />
 

@@ -17,9 +17,9 @@ interface SupporterConfirmationProps {
   siteUrl?: string;
 }
 
-const NAVY = "#1B3A5C";
-const RED = "#C53030";
-const CREAM = "#FFF8F0";
+const NAVY = "#1D3557";
+const RED = "#E63946";
+const CREAM = "#F1FAEE";
 const TEXT = "#1F2937";
 const MUTED = "#6B7280";
 const BORDER = "#E5E7EB";
@@ -244,7 +244,7 @@ const container: React.CSSProperties = {
   maxWidth: 560,
   margin: "0 auto",
   overflow: "hidden",
-  boxShadow: "0 4px 16px rgba(27, 58, 92, 0.08)",
+  boxShadow: "0 4px 16px rgba(29, 53, 87, 0.08)",
 };
 
 const header: React.CSSProperties = {
@@ -254,7 +254,7 @@ const header: React.CSSProperties = {
 };
 
 const headerEyebrow: React.CSSProperties = {
-  color: "#FFF8F0",
+  color: CREAM,
   opacity: 0.85,
   fontSize: 11,
   letterSpacing: 2,

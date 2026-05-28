@@ -22,7 +22,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="mb-6"
             >
-              <span className="inline-block text-sm sm:text-base font-semibold tracking-[0.2em] text-white uppercase border-2 border-red/60 bg-red/15 rounded-full px-5 py-2 shadow-[0_0_15px_rgba(197,48,48,0.25)]">
+              <span className="inline-block text-sm sm:text-base font-semibold tracking-[0.2em] text-white uppercase border-2 border-red/60 bg-red/15 rounded-full px-5 py-2 shadow-[0_0_15px_rgba(230,57,70,0.25)]">
                 {HERO.badge}
               </span>
             </motion.div>

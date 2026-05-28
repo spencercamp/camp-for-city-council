@@ -96,7 +96,7 @@ function Row({
 
 export default NotificationEmail;
 
-const NAVY = "#1B3A5C";
+const NAVY = "#1D3557";
 const TEXT = "#1F2937";
 const MUTED = "#6B7280";
 
