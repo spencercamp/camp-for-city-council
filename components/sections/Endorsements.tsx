@@ -1,59 +1,55 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ENDORSEMENTS } from "@/lib/constants";
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
-
 export function Endorsements() {
   return (
-    <section id="endorsements" className="relative py-24 lg:py-36 bg-blue-dark overflow-hidden">
-      {/* Gradient glow behind cards */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 55%, rgba(230,57,70,0.12) 0%, rgba(29,53,87,0.08) 50%, transparent 100%)",
-        }}
-      />
-
-      <Container className="relative z-10">
-        <SectionHeading centered light subtitle={ENDORSEMENTS.subheading}>
+    <section id="endorsements" className="relative bg-offwhite py-24 lg:py-36">
+      <Container>
+        <SectionHeading
+          eyebrow={ENDORSEMENTS.eyebrow}
+          subtitle={ENDORSEMENTS.subheading}
+          centered
+        >
           {ENDORSEMENTS.heading}
         </SectionHeading>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
           {ENDORSEMENTS.items.map((endorser, i) => (
-            <AnimatedSection key={endorser.name} delay={i * 0.1}>
-              <div className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10 text-center transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 h-full flex flex-col items-center">
-                {/* Headshot placeholder (initials) */}
-                <div className="w-20 h-20 rounded-full border-2 border-white/20 bg-white/10 flex items-center justify-center mb-5">
-                  <span className="text-white/60 text-lg font-bold tracking-wide">
-                    {getInitials(endorser.name)}
-                  </span>
+            <AnimatedSection key={endorser.name} delay={i * 0.08}>
+              <div className="group relative flex h-full flex-col items-center rounded-3xl bg-white p-8 text-center ring-1 ring-blue/[0.08] transition-all duration-300 hover:-translate-y-1 hover:ring-blue/15 hover:shadow-[0_24px_60px_-24px_rgba(20,40,68,0.25)] lg:p-10">
+                {/* Photo */}
+                <div className="relative mb-6 h-24 w-24 overflow-hidden rounded-full ring-2 ring-white shadow-[0_8px_24px_-8px_rgba(20,40,68,0.3)]">
+                  <Image
+                    src={endorser.image}
+                    alt={endorser.name}
+                    width={192}
+                    height={192}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
 
                 {/* Name */}
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                <h3 className="font-heading text-xl lg:text-2xl font-bold text-blue-dark tracking-tight">
                   {endorser.name}
                 </h3>
 
+                {/* Divider */}
+                <div className="my-3 h-px w-8 bg-red/40" aria-hidden />
+
                 {/* Title */}
-                <p className="font-serif text-white/70 font-medium text-sm leading-snug">
+                <p className="font-serif text-[15px] leading-snug text-gray-700">
                   {endorser.title}
                 </p>
 
                 {/* Context */}
-                <p className="text-white/40 text-xs mt-1">{endorser.context}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-gray-400">
+                  {endorser.context}
+                </p>
               </div>
             </AnimatedSection>
           ))}

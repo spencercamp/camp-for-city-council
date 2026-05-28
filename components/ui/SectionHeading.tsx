@@ -2,23 +2,38 @@ import { cn } from "@/lib/utils";
 
 export function SectionHeading({
   children,
+  eyebrow,
   subtitle,
   light,
   centered,
   className,
 }: {
   children: React.ReactNode;
+  eyebrow?: string;
   subtitle?: string;
   light?: boolean;
   centered?: boolean;
   className?: string;
 }) {
   return (
-    <div className={cn("mb-16 lg:mb-20", centered && "text-center", className)}>
+    <div className={cn("mb-14 lg:mb-20", centered && "text-center", className)}>
+      {eyebrow && (
+        <div className={cn("mb-5 flex items-center gap-2", centered && "justify-center")}>
+          <span className="h-px w-8 bg-red" aria-hidden />
+          <span
+            className={cn(
+              "text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em]",
+              light ? "text-red-light" : "text-red"
+            )}
+          >
+            {eyebrow}
+          </span>
+        </div>
+      )}
       <h2
         className={cn(
-          "text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tighter leading-[0.9]",
-          light ? "text-white" : "text-blue"
+          "font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em] leading-[1.05]",
+          light ? "text-white" : "text-blue-dark"
         )}
       >
         {children}
@@ -26,8 +41,8 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-6 max-w-2xl font-serif text-xl sm:text-2xl leading-relaxed",
-            light ? "text-white/60" : "text-gray-600",
+            "mt-5 max-w-2xl font-serif text-lg sm:text-xl leading-[1.6]",
+            light ? "text-white/65" : "text-gray-600",
             centered && "mx-auto"
           )}
         >

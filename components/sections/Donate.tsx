@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Copy, CheckCircle } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { Container } from "@/components/ui/Container";
 import { DONATE } from "@/lib/constants";
 
 function ZelleLogo({ className }: { className?: string }) {
@@ -16,15 +17,10 @@ function ZelleLogo({ className }: { className?: string }) {
       aria-label="Zelle"
     >
       <circle cx="32" cy="32" r="32" fill="#6D1ED4" />
-      {/* Vertical bar top */}
       <rect x="28" y="10" width="8" height="8" fill="#fff" />
-      {/* Top horizontal bar */}
       <rect x="17" y="18" width="24" height="7" fill="#fff" />
-      {/* Diagonal */}
       <polygon points="41,18 24,46 17,46 34,18" fill="#fff" />
-      {/* Bottom horizontal bar */}
       <rect x="23" y="39" width="24" height="7" fill="#fff" />
-      {/* Vertical bar bottom */}
       <rect x="28" y="46" width="8" height="8" fill="#fff" />
     </svg>
   );
@@ -51,56 +47,81 @@ export function Donate() {
   };
 
   return (
-    <section id="donate" className="py-24 lg:py-36 bg-offwhite">
-      <AnimatedSection>
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <SectionHeading subtitle={DONATE.subheading} className="mb-10 lg:mb-12">
-            {DONATE.heading}
-          </SectionHeading>
-
-          {/* Zelle branding */}
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <ZelleLogo className="h-10 w-10" />
-            <span className="text-lg font-semibold text-[#6D1ED4]">
-              Donate with Zelle
-            </span>
-          </div>
-
-          {/* Zelle number */}
-          <p className="text-sm text-gray-500 mb-2">Send your contribution via Zelle to</p>
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="text-3xl md:text-4xl font-bold text-blue tracking-wide">
-              {DONATE.zellePhone}
-            </span>
-            <button
-              onClick={handleCopy}
-              className="p-2 text-gray-400 hover:text-blue transition-colors cursor-pointer"
-              aria-label="Copy phone number"
+    <section id="donate" className="bg-white py-24 lg:py-36">
+      <Container>
+        <AnimatedSection>
+          <div className="mx-auto max-w-2xl text-center">
+            <SectionHeading
+              eyebrow={DONATE.eyebrow}
+              subtitle={DONATE.subheading}
+              centered
             >
-              {copied ? (
-                <CheckCircle className="h-5 w-5 text-green-500" />
-              ) : (
-                <Copy className="h-5 w-5" />
-              )}
-            </button>
+              {DONATE.heading}
+            </SectionHeading>
           </div>
-          {copied && (
-            <p className="text-sm text-green-600 font-medium mb-2">
-              Copied to clipboard!
-            </p>
-          )}
+        </AnimatedSection>
 
-          {/* Donation limit */}
-          <p className="text-base text-gray-600 mt-6">
-            You can donate up to <span className="font-bold text-blue">$5,900</span> per person under California campaign finance law.
-          </p>
+        <AnimatedSection delay={0.1}>
+          <div className="mx-auto max-w-xl">
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-blue/10 shadow-[0_30px_80px_-30px_rgba(20,40,68,0.18)] sm:p-10">
+              {/* Zelle header */}
+              <div className="flex items-center justify-center gap-3">
+                <ZelleLogo className="h-9 w-9" />
+                <span className="text-base font-semibold tracking-tight text-[#6D1ED4]">
+                  Donate with Zelle
+                </span>
+              </div>
 
-          {/* Check alternative */}
-          <p className="text-sm text-gray-500 mt-4">
-            Prefer to mail a check? <a href="#contact" className="text-blue underline underline-offset-2 hover:text-blue/80 transition-colors">Contact us</a> to request a mailing address.
-          </p>
-        </div>
-      </AnimatedSection>
+              {/* Divider */}
+              <div className="my-7 h-px w-full bg-gradient-to-r from-transparent via-blue/15 to-transparent" />
+
+              {/* Number block */}
+              <p className="text-center text-xs uppercase tracking-[0.18em] text-gray-500">
+                Send to
+              </p>
+              <div className="mt-3 flex items-center justify-center gap-3">
+                <span className="font-heading text-3xl md:text-4xl font-bold tracking-tight text-blue-dark">
+                  {DONATE.zellePhone}
+                </span>
+                <button
+                  onClick={handleCopy}
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-gray-400 transition-all hover:bg-blue/5 hover:text-blue cursor-pointer"
+                  aria-label="Copy phone number"
+                >
+                  {copied ? (
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                  ) : (
+                    <Copy className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+              {copied && (
+                <p className="mt-2 text-center text-sm font-medium text-green-600">
+                  Copied to clipboard
+                </p>
+              )}
+
+              {/* Notes */}
+              <div className="mt-8 space-y-3 text-center">
+                <p className="text-sm leading-relaxed text-gray-600">
+                  You can donate up to{" "}
+                  <span className="font-semibold text-blue-dark">$5,900</span> per person under California campaign finance law.
+                </p>
+                <p className="text-sm text-gray-500">
+                  Prefer to mail a check?{" "}
+                  <a
+                    href="#contact"
+                    className="font-medium text-blue underline-offset-4 hover:underline transition-colors"
+                  >
+                    Contact us
+                  </a>{" "}
+                  for a mailing address.
+                </p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </Container>
     </section>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -57,58 +57,74 @@ export function Contact() {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none transition-colors";
+    "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-[15px] text-gray-900 placeholder:text-gray-400 transition-all focus:border-blue focus:outline-none focus:ring-4 focus:ring-blue/10";
+  const labelClass = "mb-1.5 block text-sm font-medium text-gray-700";
 
   return (
-    <section id="contact" className="py-24 lg:py-36 bg-white">
+    <section id="contact" className="bg-offwhite py-24 lg:py-36">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
-          {/* Left — heading and context */}
-          <div>
-            <SectionHeading subtitle={CONTACT.subheading} className="mb-8 lg:mb-10">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
+          {/* Left — heading and direct contact */}
+          <div className="lg:col-span-5">
+            <SectionHeading
+              eyebrow={CONTACT.eyebrow}
+              subtitle={CONTACT.subheading}
+            >
               {CONTACT.heading}
             </SectionHeading>
-            <div className="hidden lg:block space-y-4 text-gray-500 text-sm">
-              <p>Have questions? Reach out directly:</p>
-              <p>
-                <a href={`mailto:${SITE.email}`} className="text-blue hover:underline">
-                  {SITE.email}
-                </a>
+
+            <div className="space-y-4">
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-gray-500">
+                Get in touch
               </p>
-              <p>
-                <a href={`tel:${SITE.phone.replace(/[^\d+]/g, "")}`} className="text-blue hover:underline">
-                  {SITE.phone}
-                </a>
-              </p>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="group flex items-center gap-3 text-gray-700 transition-colors hover:text-blue-dark"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-blue/10 transition-colors group-hover:ring-blue/30">
+                  <Mail className="h-4 w-4 text-blue" />
+                </span>
+                <span className="text-[15px]">{SITE.email}</span>
+              </a>
+              <a
+                href={`tel:${SITE.phone.replace(/[^\d+]/g, "")}`}
+                className="group flex items-center gap-3 text-gray-700 transition-colors hover:text-blue-dark"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-blue/10 transition-colors group-hover:ring-blue/30">
+                  <Phone className="h-4 w-4 text-blue" />
+                </span>
+                <span className="text-[15px]">{SITE.phone}</span>
+              </a>
             </div>
           </div>
 
           {/* Right — form */}
-          <AnimatedSection>
-            <div>
+          <AnimatedSection className="lg:col-span-7">
+            <div className="rounded-3xl bg-white p-8 ring-1 ring-blue/10 shadow-[0_30px_80px_-30px_rgba(20,40,68,0.15)] sm:p-10">
               {state === "success" ? (
-                <div className="rounded-xl bg-green-50 p-8 text-center border border-green-200">
-                  <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-green-800 mb-2">
-                    Thank You!
+                <div className="py-6 text-center">
+                  <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-green-50 ring-1 ring-green-200">
+                    <CheckCircle className="h-7 w-7 text-green-500" />
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold tracking-tight text-blue-dark">
+                    Welcome aboard.
                   </h3>
-                  <p className="text-green-700">
-                    You&apos;re signed up to receive campaign updates. Together, we&apos;ll
-                    make a difference for San Clemente.
+                  <p className="mt-3 text-gray-600">
+                    You&apos;re on the list. Together, we&apos;ll keep San Clemente the place we love.
                   </p>
                   <button
                     onClick={() => setState("idle")}
-                    className="mt-4 text-sm text-green-600 underline hover:text-green-800 cursor-pointer"
+                    className="mt-5 text-sm font-medium text-blue underline-offset-4 hover:underline cursor-pointer"
                   >
                     Sign up another supporter
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="firstName" className="block text-xs text-gray-500 mb-1 lowercase">
-                        first name *
+                      <label htmlFor="firstName" className={labelClass}>
+                        First name <span className="text-red">*</span>
                       </label>
                       <input
                         type="text"
@@ -116,12 +132,12 @@ export function Contact() {
                         name="firstName"
                         required
                         className={inputClass}
-                        placeholder="First name"
+                        placeholder="Jane"
                       />
                     </div>
                     <div>
-                      <label htmlFor="lastName" className="block text-xs text-gray-500 mb-1 lowercase">
-                        last name *
+                      <label htmlFor="lastName" className={labelClass}>
+                        Last name <span className="text-red">*</span>
                       </label>
                       <input
                         type="text"
@@ -129,14 +145,14 @@ export function Contact() {
                         name="lastName"
                         required
                         className={inputClass}
-                        placeholder="Last name"
+                        placeholder="Smith"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs text-gray-500 mb-1 lowercase">
-                      email address *
+                    <label htmlFor="email" className={labelClass}>
+                      Email address <span className="text-red">*</span>
                     </label>
                     <input
                       type="email"
@@ -148,10 +164,10 @@ export function Contact() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="phone" className="block text-xs text-gray-500 mb-1 lowercase">
-                        cell phone
+                      <label htmlFor="phone" className={labelClass}>
+                        Cell phone
                       </label>
                       <input
                         type="tel"
@@ -162,8 +178,8 @@ export function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="zipCode" className="block text-xs text-gray-500 mb-1 lowercase">
-                        zip code
+                      <label htmlFor="zipCode" className={labelClass}>
+                        Zip code
                       </label>
                       <input
                         type="text"
@@ -177,40 +193,46 @@ export function Contact() {
                   </div>
 
                   {/* SMS opt-in */}
-                  <div className="flex items-start gap-3">
+                  <label
+                    htmlFor="smsOptIn"
+                    className="flex cursor-pointer items-start gap-3 rounded-xl bg-slate/40 p-4 ring-1 ring-blue/[0.06] transition-colors hover:bg-slate/60"
+                  >
                     <input
                       type="checkbox"
                       id="smsOptIn"
                       name="smsOptIn"
-                      className="mt-1 h-4 w-4 rounded border-gray-300 text-blue focus:ring-blue"
+                      className="mt-0.5 h-4 w-4 cursor-pointer rounded border-gray-300 text-blue accent-blue focus:ring-blue"
                     />
-                    <label htmlFor="smsOptIn" className="text-xs text-gray-500 leading-relaxed">
+                    <span className="text-xs leading-relaxed text-gray-600">
                       I agree to receive text messages from Steve Camp for City Council. Message and data rates may apply. Reply STOP to opt out at any time.
-                    </label>
-                  </div>
+                    </span>
+                  </label>
 
                   {state === "error" && (
-                    <div className="flex items-center gap-2 text-red-600 text-sm">
-                      <AlertCircle className="h-4 w-4" />
+                    <div className="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700 ring-1 ring-red-100">
+                      <AlertCircle className="h-4 w-4 flex-shrink-0" />
                       <span>Something went wrong. Please try again.</span>
                     </div>
                   )}
 
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    disabled={state === "submitting"}
-                  >
-                    {state === "submitting" ? (
-                      "Sending..."
-                    ) : (
-                      <span className="flex items-center justify-center gap-2">
-                        <Send className="h-4 w-4" />
-                        Join the Campaign
-                      </span>
-                    )}
-                  </Button>
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      disabled={state === "submitting"}
+                      className="w-full sm:w-auto"
+                    >
+                      {state === "submitting" ? (
+                        "Sending..."
+                      ) : (
+                        <span className="flex items-center justify-center gap-2">
+                          <Send className="h-4 w-4" />
+                          Join the Campaign
+                        </span>
+                      )}
+                    </Button>
+                  </div>
                 </form>
               )}
             </div>

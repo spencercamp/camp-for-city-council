@@ -33,9 +33,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 mark {
-  background: linear-gradient(to top, rgba(230, 57, 70, 0.15) 50%, transparent 50%);
+  background: linear-gradient(180deg, transparent 62%, rgba(230, 57, 70, 0.18) 62%);
   color: inherit;
-  padding: 0.1em 0;
+  padding: 0 0.05em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }

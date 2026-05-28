@@ -37,10 +37,10 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         "md:top-4 md:left-6 md:right-6",
-        "bg-blue-dark/95 backdrop-blur-sm",
+        "bg-blue-dark/85 backdrop-blur-md backdrop-saturate-150",
         "md:rounded-full md:max-w-5xl md:mx-auto",
-        "border border-white/20",
-        scrolled ? "shadow-lg" : "",
+        "ring-1 ring-white/15",
+        scrolled ? "shadow-[0_10px_40px_-10px_rgba(0,0,0,0.4)]" : "",
         hidden && !mobileOpen ? "-translate-y-full md:-translate-y-[calc(100%+1rem)]" : "translate-y-0"
       )}
     >
@@ -71,7 +71,7 @@ export function Navbar() {
           ))}
           <a
             href="#donate"
-            className="bg-red text-white rounded-full px-4 py-1.5 text-sm font-medium hover:bg-red-dark transition-colors"
+            className="rounded-full bg-red px-5 py-2 text-sm font-semibold text-white shadow-[0_6px_16px_-6px_rgba(230,57,70,0.6)] transition-all hover:bg-red-dark hover:shadow-[0_8px_22px_-6px_rgba(230,57,70,0.7)]"
           >
             Donate
           </a>
