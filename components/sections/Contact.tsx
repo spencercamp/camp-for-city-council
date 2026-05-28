@@ -8,6 +8,15 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
 import { CONTACT, SITE } from "@/lib/constants";
 
+interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  zipCode: string;
+  smsOptIn: boolean;
+}
+
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
@@ -18,13 +27,22 @@ export function Contact() {
     setState("submitting");
 
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
+
+    const payload: ContactFormData = {
+      firstName: String(formData.get("firstName") ?? ""),
+      lastName: String(formData.get("lastName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      zipCode: String(formData.get("zipCode") ?? ""),
+      smsOptIn: formData.get("smsOptIn") === "on",
+    };
 
     try {
-      const res = await fetch(SITE.formspreeEndpoint, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
