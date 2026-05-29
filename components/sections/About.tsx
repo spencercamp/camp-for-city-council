@@ -13,7 +13,7 @@ export function About() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
           {/* Left column — bio */}
           <div className="lg:col-span-7">
-            <SectionHeading eyebrow={ABOUT.eyebrow}>{ABOUT.heading}</SectionHeading>
+            <SectionHeading subtitle={ABOUT.subheading}>{ABOUT.heading}</SectionHeading>
 
             <AnimatedSection>
               <div className="space-y-6">

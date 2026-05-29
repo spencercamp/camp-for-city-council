@@ -10,11 +10,7 @@ export function Endorsements() {
   return (
     <section id="endorsements" className="relative bg-offwhite py-24 lg:py-36">
       <Container>
-        <SectionHeading
-          eyebrow={ENDORSEMENTS.eyebrow}
-          subtitle={ENDORSEMENTS.subheading}
-          centered
-        >
+        <SectionHeading subtitle={ENDORSEMENTS.subheading} centered>
           {ENDORSEMENTS.heading}
         </SectionHeading>
 

@@ -10,7 +10,7 @@ export function GetInvolved() {
   return (
     <section id="get-involved" className="py-24 lg:py-36 bg-white">
       <Container>
-        <SectionHeading>{GET_INVOLVED.heading}</SectionHeading>
+        <SectionHeading subtitle={GET_INVOLVED.subheading}>{GET_INVOLVED.heading}</SectionHeading>
 
         <AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

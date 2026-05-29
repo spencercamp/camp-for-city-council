@@ -33,7 +33,8 @@ export const HERO = {
 
 export const ABOUT = {
   eyebrow: "Meet Steve",
-  heading: "A proven neighbor, ready to serve.",
+  heading: "About Steve",
+  subheading: "A proven neighbor, ready to serve.",
   stats: [
     { number: "4.5 years", label: "Planning Commission" },
     { number: "4.5 years", label: "Design Review" },
@@ -44,7 +45,7 @@ export const ABOUT = {
 
 export const ISSUES = {
   eyebrow: "Where Steve Stands",
-  heading: "Priorities that put San Clemente first.",
+  heading: "Issues",
   subheading: "Seven commitments, rooted in three decades of service to our coastal community.",
   items: [
     {
@@ -122,7 +123,7 @@ export const QUALIFICATIONS = {
 
 export const ENDORSEMENTS = {
   eyebrow: "Endorsements",
-  heading: "Trusted by San Clemente's proven leaders.",
+  heading: "Endorsements",
   subheading:
     "Steve has earned the support of officials who know what it takes to lead our city.",
   items: [
@@ -148,7 +149,8 @@ export const ENDORSEMENTS = {
 } as const;
 
 export const GET_INVOLVED = {
-  heading: "get involved",
+  heading: "Get Involved",
+  subheading: "A few simple ways to pitch in.",
   items: [
     {
       title: "Volunteer",
@@ -179,7 +181,7 @@ export const GET_INVOLVED = {
 
 export const DONATE = {
   eyebrow: "Support the campaign",
-  heading: "Help Steve reach every voter.",
+  heading: "Support the Campaign",
   subheading:
     "Whatever you can give carries this message to one more doorstep in District One.",
   zellePhone: "(949) 637-2833",
@@ -190,7 +192,7 @@ export const DONATE = {
 
 export const CONTACT = {
   eyebrow: "Join the campaign",
-  heading: "Let's stay in touch.",
+  heading: "Stay Connected",
   subheading:
     "Add your name for campaign news, ways to help, and a heads-up on what's happening before November 2026.",
 } as const;

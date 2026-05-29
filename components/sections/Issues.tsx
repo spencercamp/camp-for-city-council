@@ -36,11 +36,7 @@ export function Issues() {
       />
 
       <Container className="relative z-10">
-        <SectionHeading
-          eyebrow={ISSUES.eyebrow}
-          subtitle={ISSUES.subheading}
-          light
-        >
+        <SectionHeading subtitle={ISSUES.subheading} light>
           {ISSUES.heading}
         </SectionHeading>
 

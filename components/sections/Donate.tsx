@@ -51,11 +51,7 @@ export function Donate() {
       <Container>
         <AnimatedSection>
           <div className="mx-auto max-w-2xl text-center">
-            <SectionHeading
-              eyebrow={DONATE.eyebrow}
-              subtitle={DONATE.subheading}
-              centered
-            >
+            <SectionHeading subtitle={DONATE.subheading} centered>
               {DONATE.heading}
             </SectionHeading>
           </div>

@@ -66,10 +66,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
           {/* Left — heading and direct contact */}
           <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow={CONTACT.eyebrow}
-              subtitle={CONTACT.subheading}
-            >
+            <SectionHeading subtitle={CONTACT.subheading}>
               {CONTACT.heading}
             </SectionHeading>
 
