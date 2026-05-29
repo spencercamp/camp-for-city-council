@@ -190,24 +190,6 @@ export function Hero() {
                 priority
               />
 
-              {/* Bigger VOTE NOV 2026 sticker */}
-              <motion.div
-                initial={{ opacity: 0, rotate: 5, scale: 0.7 }}
-                animate={{ opacity: 1, rotate: -10, scale: 1 }}
-                transition={{ duration: 0.7, delay: 1.1, ease: "backOut" }}
-                className="absolute -right-7 -top-7 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-red text-white shadow-[0_25px_60px_-12px_rgba(230,57,70,0.8)] ring-[7px] ring-blue-dark"
-              >
-                <span className="text-[10px] uppercase tracking-[0.24em] opacity-95">
-                  Vote
-                </span>
-                <span className="font-heading mt-0.5 text-3xl font-extrabold leading-none">
-                  NOV
-                </span>
-                <span className="font-heading text-3xl font-extrabold leading-none">
-                  2026
-                </span>
-              </motion.div>
-
             </div>
           </motion.div>
 
@@ -227,17 +209,6 @@ export function Hero() {
                 className="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top shadow-2xl ring-1 ring-white/10"
                 priority
               />
-              <div className="absolute -right-3 -top-3 flex h-20 w-20 -rotate-[8deg] flex-col items-center justify-center rounded-full bg-red text-white shadow-[0_15px_35px_-10px_rgba(230,57,70,0.7)] ring-[5px] ring-blue-dark">
-                <span className="text-[9px] uppercase tracking-[0.2em]">
-                  Vote
-                </span>
-                <span className="font-heading text-lg font-extrabold leading-none">
-                  NOV
-                </span>
-                <span className="font-heading text-lg font-extrabold leading-none">
-                  2026
-                </span>
-              </div>
             </div>
           </motion.div>
         </div>
