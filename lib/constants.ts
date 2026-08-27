@@ -145,6 +145,24 @@ export const ENDORSEMENTS = {
       context: "City of San Clemente",
       image: "/images/endorsers/cosgrove.jpg",
     },
+    {
+      name: "Orange County Firefighters",
+      title: "IAFF Local 3631",
+      context: "Orange County",
+      image: "/images/endorsers/oc-firefighters.jpg",
+    },
+    {
+      name: "Laurie Davies",
+      title: "Assemblywoman, 74th District",
+      context: "California State Assembly",
+      image: "/images/endorsers/davies.jpg",
+    },
+    {
+      name: "John Randall",
+      title: "Senior Pastor, Calvary South Orange County",
+      context: "Orange County",
+      image: "/images/endorsers/randall.jpg",
+    },
   ],
 } as const;
 

@@ -120,14 +120,14 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.85 }}
               className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4"
             >
-              <Button href="#donate" variant="primary" size="lg">
+              <Button href="#about" variant="primary" size="lg">
                 <span className="flex items-center gap-2">
-                  Donate
+                  {HERO.cta2}
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </Button>
-              <Button href="#about" variant="outline" size="lg">
-                {HERO.cta2}
+              <Button href="#donate" variant="outline" size="lg">
+                Donate
               </Button>
             </motion.div>
 
@@ -160,7 +160,7 @@ export function Hero() {
                   Endorsed by
                 </p>
                 <p className="mt-1 text-sm sm:text-[15px] font-medium text-white/85">
-                  Mayor Pro Tem · Former Mayor · Planning Chair
+                  Local leaders, firefighters &amp; Assemblywoman Davies
                 </p>
               </div>
             </motion.div>
