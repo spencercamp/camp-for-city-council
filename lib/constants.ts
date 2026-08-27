@@ -36,7 +36,7 @@ export const ABOUT = {
   heading: "About Steve",
   subheading: "A proven neighbor, ready to serve.",
   stats: [
-    { number: "4.5 years", label: "Planning Commission" },
+    { number: "5 years", label: "Planning Commission" },
     { number: "4.5 years", label: "Design Review" },
     { number: "36 years", label: "Architecture business owner" },
     { number: "30+ years", label: "San Clemente Resident" },
@@ -91,11 +91,11 @@ export const QUALIFICATIONS = {
   subheading: "Decades of experience serving San Clemente.",
   items: [
     {
-      value: 4.5,
+      value: 5,
       suffix: "years",
       label: "Planning Commission",
       description: "Service on the San Clemente Planning Commission",
-      headline: "4.5 years serving on the Planning Commission",
+      headline: "5 years serving on the Planning Commission",
     },
     {
       value: 4.5,

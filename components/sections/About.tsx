@@ -21,7 +21,7 @@ export function About() {
                   For more than 30 years, San Clemente has been my family&apos;s home — and the community I&apos;m proud to serve. As an architect and small business owner with <mark>36 years of experience in design, planning, and project management</mark>, I know how to grow a city without losing what makes it special. And through the <mark>San Clemente Chamber of Commerce</mark>, I&apos;ve seen up close what our local businesses need to thrive.
                 </p>
                 <p className="font-serif text-lg sm:text-xl text-gray-700 leading-[1.7]">
-                  My service on the <mark>Planning Commission and Design Review Subcommittee</mark> has been focused on protecting our coastal charm while allowing thoughtful, responsible development. I&apos;ve spent <mark>4.5 years listening to residents, asking hard questions</mark>, and working to ensure projects fit San Clemente—not the other way around.
+                  My service on the <mark>Planning Commission and Design Review Subcommittee</mark> has been focused on protecting our coastal charm while allowing thoughtful, responsible development. I&apos;ve spent <mark>5 years listening to residents, asking hard questions</mark>, and working to ensure projects fit San Clemente—not the other way around.
                 </p>
                 <p className="font-serif text-lg sm:text-xl text-gray-700 leading-[1.7]">
                   Whether I&apos;m surfing at San Clemente beaches, walking the Pier with my wife, worshiping at <mark>Calvary South OC</mark>, or reviewing land-use policies, my goal is the same: to <mark>put residents first, lead with integrity, and keep San Clemente a safe, vibrant community for all</mark>.
