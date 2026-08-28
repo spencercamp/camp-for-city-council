@@ -2,7 +2,7 @@ export const SITE = {
   name: "Steve Camp for City Council",
   title: "Steve Camp for San Clemente City Council | District 1",
   description:
-    "Steve Camp is running for San Clemente City Council District One in November 2026. Committed to public safety, fiscal responsibility, and preserving our coastal quality of life.",
+    "Steve Camp for San Clemente City Council District One, November 2026 — public safety, fiscal responsibility, and our coastal quality of life.",
   url: "https://campforcitycouncil.com",
   email: "stevec@elementsarch.com",
   phone: "(949) 637-2833",

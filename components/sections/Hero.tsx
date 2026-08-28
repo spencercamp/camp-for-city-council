@@ -65,22 +65,27 @@ export function Hero() {
             </motion.div>
 
             {/* Name lockup */}
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="font-heading text-[clamp(2.5rem,7.5vw,6rem)] font-bold uppercase leading-[0.85] tracking-[-0.04em] text-white"
-            >
-              {HERO.name1}
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.12, ease: "easeOut" }}
-              className="font-heading text-[clamp(4.5rem,14vw,13rem)] font-bold uppercase leading-[0.78] tracking-[-0.05em] text-white"
-            >
-              {HERO.name2}
-            </motion.h1>
+            <h1 className="font-heading font-bold uppercase text-white">
+              <motion.span
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="block text-[clamp(2.5rem,7.5vw,6rem)] leading-[0.85] tracking-[-0.04em]"
+              >
+                {HERO.name1}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.12, ease: "easeOut" }}
+                className="block text-[clamp(4.5rem,14vw,13rem)] leading-[0.78] tracking-[-0.05em]"
+              >
+                {HERO.name2}
+              </motion.span>
+              <span className="sr-only">
+                for San Clemente City Council, District 1
+              </span>
+            </h1>
 
             {/* Eyebrow rule */}
             <motion.div
