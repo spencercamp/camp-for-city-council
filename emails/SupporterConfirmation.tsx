@@ -159,14 +159,14 @@ export function SupporterConfirmation({
               </Link>
               {"  ·  "}
               <Link
-                href="https://www.facebook.com/profile.php?id=61577622498498"
+                href="https://www.facebook.com/steven.camp.94"
                 style={inlineLink}
               >
                 Follow on Facebook
               </Link>
               {"  ·  "}
               <Link
-                href="https://www.instagram.com/campforcitycouncil/"
+                href="https://www.instagram.com/camp4sanclemente/"
                 style={inlineLink}
               >
                 Follow on Instagram

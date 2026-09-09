@@ -9,8 +9,8 @@ export const SITE = {
   disclaimer:
     "Paid for by Camp for San Clemente City Council 2026, ID Number 1487361",
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=61577622498498",
-    instagram: "https://www.instagram.com/campforcitycouncil/",
+    facebook: "https://www.facebook.com/steven.camp.94",
+    instagram: "https://www.instagram.com/camp4sanclemente/",
   },
 } as const;
 
@@ -186,7 +186,7 @@ export const GET_INVOLVED = {
       title: "Spread the Word",
       description: "Share Steve's message with the people next door and down the street.",
       cta: "Follow along",
-      href: "https://www.facebook.com/profile.php?id=61577622498498",
+      href: "https://www.facebook.com/steven.camp.94",
     },
     {
       title: "Donate",
